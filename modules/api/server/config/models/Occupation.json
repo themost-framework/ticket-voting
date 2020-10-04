@@ -1,0 +1,63 @@
+{
+    "@id": "http://schema.org/Occupation",
+    "name": "Occupation",
+    "description": "A profession, may involve prolonged training and/or a formal qualification.",
+    "title": "Occupation",
+    "abstract": false,
+    "sealed": false,
+    "implements": "Intangible",
+    "version": "1.0",
+    "fields": [
+        {
+            "@id": "http://schema.org/occupationLocation",
+            "name": "occupationLocation",
+            "title": "occupationLocation",
+            "description": "The region/country for which this occupational description is appropriate. Note that educational requirements and qualifications can vary between jurisdictions.",
+            "type": "AdministrativeArea"
+        },
+        {
+            "@id": "http://schema.org/skills",
+            "name": "skills",
+            "title": "skills",
+            "description": "A statement of knowledge, skill, ability, task or any other assertion expressing a competency that is desired or required to fulfill this role or to work in this occupation."
+        },
+        {
+            "@id": "http://schema.org/responsibilities",
+            "name": "responsibilities",
+            "title": "responsibilities",
+            "description": "Responsibilities associated with this role or Occupation.",
+            "type": "Text"
+        },
+        {
+            "@id": "http://schema.org/occupationalCategory",
+            "name": "occupationalCategory",
+            "title": "occupationalCategory",
+            "description": "A category describing the job, preferably using a term from a taxonomy such as BLS O*NET-SOC, ISCO-08 or similar, with the property repeated for each applicable value. Ideally the taxonomy should be identified, and both the textual label and formal code for the category should be provided.Note: for historical reasons, any textual label and formal code provided as a literal may be assumed to be from O*NET-SOC."
+        },
+        {
+            "@id": "http://schema.org/experienceRequirements",
+            "name": "experienceRequirements",
+            "title": "experienceRequirements",
+            "description": "Description of skills and experience needed for the position or Occupation.",
+            "type": "Text"
+        },
+        {
+            "@id": "http://schema.org/estimatedSalary",
+            "name": "estimatedSalary",
+            "title": "estimatedSalary",
+            "description": "An estimated salary for a job posting or occupation, based on a variety of variables including, but not limited to industry, job title, and location. Estimated salaries  are often computed by outside organizations rather than the hiring organization, who may not have committed to the estimated value.",
+            "type": "Number"
+        }
+    ],
+    "privileges": [
+        {
+            "mask": 15,
+            "type": "global"
+        },
+        {
+            "mask": 15,
+            "type": "global",
+            "account": "Administrators"
+        }
+    ]
+}

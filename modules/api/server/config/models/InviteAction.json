@@ -1,0 +1,30 @@
+{
+    "@id": "http://schema.org/InviteAction",
+    "name": "InviteAction",
+    "description": "The act of asking someone to attend an event. Reciprocal of RsvpAction.",
+    "title": "InviteAction",
+    "abstract": false,
+    "sealed": false,
+    "inherits": "CommunicateAction",
+    "version": "1.0",
+    "fields": [
+        {
+            "@id": "http://schema.org/event",
+            "name": "event",
+            "title": "event",
+            "description": "Upcoming or past event associated with this place, organization, or action.",
+            "type": "Event"
+        }
+    ],
+    "privileges": [
+        {
+            "mask": 15,
+            "type": "global"
+        },
+        {
+            "mask": 15,
+            "type": "global",
+            "account": "Administrators"
+        }
+    ]
+}

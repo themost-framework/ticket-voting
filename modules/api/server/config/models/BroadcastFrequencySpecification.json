@@ -1,0 +1,30 @@
+{
+    "@id": "http://schema.org/BroadcastFrequencySpecification",
+    "name": "BroadcastFrequencySpecification",
+    "description": "The frequency in MHz and the modulation used for a particular BroadcastService.",
+    "title": "BroadcastFrequencySpecification",
+    "abstract": false,
+    "sealed": false,
+    "implements": "Intangible",
+    "version": "1.0",
+    "fields": [
+        {
+            "@id": "http://schema.org/broadcastFrequencyValue",
+            "name": "broadcastFrequencyValue",
+            "title": "broadcastFrequencyValue",
+            "description": "The frequency in MHz for a particular broadcast.",
+            "type": "QuantitativeValue"
+        }
+    ],
+    "privileges": [
+        {
+            "mask": 15,
+            "type": "global"
+        },
+        {
+            "mask": 15,
+            "type": "global",
+            "account": "Administrators"
+        }
+    ]
+}

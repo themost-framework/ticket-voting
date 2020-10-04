@@ -1,0 +1,22 @@
+{
+    "@id": "http://schema.org/CableOrSatelliteService",
+    "name": "CableOrSatelliteService",
+    "description": "A service which provides access to media programming like TV or radio. Access may be via cable or satellite.",
+    "title": "CableOrSatelliteService",
+    "abstract": false,
+    "sealed": false,
+    "inherits": "Service",
+    "version": "1.0",
+    "fields": [],
+    "privileges": [
+        {
+            "mask": 15,
+            "type": "global"
+        },
+        {
+            "mask": 15,
+            "type": "global",
+            "account": "Administrators"
+        }
+    ]
+}

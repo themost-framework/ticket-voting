@@ -1,0 +1,38 @@
+{
+  "$schema": "https://themost-framework.github.io/themost/models/2018/2/schema.json",
+    "@id": "http://schema.org/RegisterCandidateAction",
+    "name": "RegisterCandidateAction",
+    "description": "The act of registering to be a candidate of an election event.",
+    "title": "RegisterCandidateAction",
+    "abstract": false,
+    "sealed": false,
+    "inherits": "RegisterAction",
+    "version": "1.0",
+    "fields": [
+        {
+            "@id": "http://schema.org/electionEvent",
+            "name": "electionEvent",
+            "title": "electionEvent",
+            "type": "ElectionEvent",
+            "nullable": false
+        },
+        {
+            "@id": "http://schema.org/object",
+            "name": "object",
+            "title": "object",
+            "description": "The candidate which is being registered through this action.",
+            "type": "Person"
+        }
+    ],
+    "privileges": [
+        {
+            "mask": 15,
+            "type": "global"
+        },
+        {
+            "mask": 15,
+            "type": "global",
+            "account": "Administrators"
+        }
+    ]
+}

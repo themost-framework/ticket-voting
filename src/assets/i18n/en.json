@@ -1,0 +1,12 @@
+{
+  "Features": "Features",
+  "Support": "Support",
+  "Signup": "Sign up",
+  "Application": {
+    "Title": "tick-n-vote",
+    "Description": "a secure ticket-based voting application"
+  },
+  "About": "About",
+  "Privacy": "Privacy",
+  "Terms": "Terms"
+}

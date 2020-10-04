@@ -1,0 +1,79 @@
+{
+    "@id": "http://schema.org/QualitativeValue",
+    "name": "QualitativeValue",
+    "description": "A predefined value for a product characteristic, e.g. the power cord plug type 'US' or the garment sizes 'S', 'M', 'L', and 'XL'.",
+    "title": "QualitativeValue",
+    "abstract": false,
+    "sealed": false,
+    "implements": "Enumeration",
+    "version": "1.0",
+    "fields": [
+        {
+            "@id": "http://schema.org/greater",
+            "name": "greater",
+            "title": "greater",
+            "description": "This ordering relation for qualitative values indicates that the subject is greater than the object.",
+            "type": "QualitativeValue"
+        },
+        {
+            "@id": "http://schema.org/equal",
+            "name": "equal",
+            "title": "equal",
+            "description": "This ordering relation for qualitative values indicates that the subject is equal to the object.",
+            "type": "QualitativeValue"
+        },
+        {
+            "@id": "http://schema.org/nonEqual",
+            "name": "nonEqual",
+            "title": "nonEqual",
+            "description": "This ordering relation for qualitative values indicates that the subject is not equal to the object.",
+            "type": "QualitativeValue"
+        },
+        {
+            "@id": "http://schema.org/additionalProperty",
+            "name": "additionalProperty",
+            "title": "additionalProperty",
+            "description": "A property-value pair representing an additional characteristics of the entitity, e.g. a product feature or another characteristic for which there is no matching property in schema.org.Note: Publishers should be aware that applications designed to use specific schema.org properties (e.g. http://schema.org/width, http://schema.org/color, http://schema.org/gtin13, ...) will typically expect such data to be provided using those properties, rather than using the generic property/value mechanism.",
+            "type": "PropertyValue"
+        },
+        {
+            "@id": "http://schema.org/lesser",
+            "name": "lesser",
+            "title": "lesser",
+            "description": "This ordering relation for qualitative values indicates that the subject is lesser than the object.",
+            "type": "QualitativeValue"
+        },
+        {
+            "@id": "http://schema.org/valueReference",
+            "name": "valueReference",
+            "title": "valueReference",
+            "description": "A pointer to a secondary value that provides additional information on the original value, e.g. a reference temperature.",
+            "type": "QualitativeValue"
+        },
+        {
+            "@id": "http://schema.org/lesserOrEqual",
+            "name": "lesserOrEqual",
+            "title": "lesserOrEqual",
+            "description": "This ordering relation for qualitative values indicates that the subject is lesser than or equal to the object.",
+            "type": "QualitativeValue"
+        },
+        {
+            "@id": "http://schema.org/greaterOrEqual",
+            "name": "greaterOrEqual",
+            "title": "greaterOrEqual",
+            "description": "This ordering relation for qualitative values indicates that the subject is greater than or equal to the object.",
+            "type": "QualitativeValue"
+        }
+    ],
+    "privileges": [
+        {
+            "mask": 15,
+            "type": "global"
+        },
+        {
+            "mask": 15,
+            "type": "global",
+            "account": "Administrators"
+        }
+    ]
+}

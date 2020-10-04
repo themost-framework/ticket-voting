@@ -1,0 +1,65 @@
+{
+    "@id": "http://schema.org/BroadcastChannel",
+    "name": "BroadcastChannel",
+    "description": "A unique instance of a BroadcastService on a CableOrSatelliteService lineup.",
+    "title": "BroadcastChannel",
+    "abstract": false,
+    "sealed": false,
+    "implements": "Intangible",
+    "version": "1.0",
+    "fields": [
+        {
+            "@id": "http://schema.org/broadcastFrequency",
+            "name": "broadcastFrequency",
+            "title": "broadcastFrequency",
+            "description": "The frequency used for over-the-air broadcasts. Numeric values or simple ranges e.g. 87-99. In addition a shortcut idiom is supported for frequences of AM and FM radio channels, e.g. \"87 FM\".",
+            "type": "BroadcastFrequencySpecification"
+        },
+        {
+            "@id": "http://schema.org/broadcastChannelId",
+            "name": "broadcastChannelId",
+            "title": "broadcastChannelId",
+            "description": "The unique address by which the BroadcastService can be identified in a provider lineup. In US, this is typically a number.",
+            "type": "Text"
+        },
+        {
+            "@id": "http://schema.org/broadcastServiceTier",
+            "name": "broadcastServiceTier",
+            "title": "broadcastServiceTier",
+            "description": "The type of service required to have access to the channel (e.g. Standard or Premium).",
+            "type": "Text"
+        },
+        {
+            "@id": "http://schema.org/inBroadcastLineup",
+            "name": "inBroadcastLineup",
+            "title": "inBroadcastLineup",
+            "description": "The CableOrSatelliteService offering the channel.",
+            "type": "CableOrSatelliteService"
+        },
+        {
+            "@id": "http://schema.org/providesBroadcastService",
+            "name": "providesBroadcastService",
+            "title": "providesBroadcastService",
+            "description": "The BroadcastService offered on this channel.",
+            "type": "BroadcastService"
+        },
+        {
+            "@id": "http://schema.org/genre",
+            "name": "genre",
+            "title": "genre",
+            "description": "Genre of the creative work, broadcast channel or group.",
+            "type": "Text"
+        }
+    ],
+    "privileges": [
+        {
+            "mask": 15,
+            "type": "global"
+        },
+        {
+            "mask": 15,
+            "type": "global",
+            "account": "Administrators"
+        }
+    ]
+}

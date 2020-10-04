@@ -1,0 +1,30 @@
+{
+    "@id": "http://schema.org/Map",
+    "name": "Map",
+    "description": "A map.",
+    "title": "Map",
+    "abstract": false,
+    "sealed": false,
+    "inherits": "CreativeWork",
+    "version": "1.0",
+    "fields": [
+        {
+            "@id": "http://schema.org/mapType",
+            "name": "mapType",
+            "title": "mapType",
+            "description": "Indicates the kind of Map, from the MapCategoryType Enumeration.",
+            "type": "MapCategoryType"
+        }
+    ],
+    "privileges": [
+        {
+            "mask": 15,
+            "type": "global"
+        },
+        {
+            "mask": 15,
+            "type": "global",
+            "account": "Administrators"
+        }
+    ]
+}

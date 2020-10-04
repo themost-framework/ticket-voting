@@ -1,0 +1,37 @@
+{
+    "@id": "http://schema.org/MediaSubscription",
+    "name": "MediaSubscription",
+    "description": "A subscription which allows a user to access media including audio, video, books, etc.",
+    "title": "MediaSubscription",
+    "abstract": false,
+    "sealed": false,
+    "implements": "Intangible",
+    "version": "1.0",
+    "fields": [
+        {
+            "@id": "http://schema.org/authenticator",
+            "name": "authenticator",
+            "title": "authenticator",
+            "description": "The Organization responsible for authenticating the user's subscription. For example, many media apps require a cable/satellite provider to authenticate your subscription before playing media.",
+            "type": "Organization"
+        },
+        {
+            "@id": "http://schema.org/expectsAcceptanceOf",
+            "name": "expectsAcceptanceOf",
+            "title": "expectsAcceptanceOf",
+            "description": "An Offer which must be accepted before the user can perform the Action. For example, the user may need to buy a movie before being able to watch it.",
+            "type": "Offer"
+        }
+    ],
+    "privileges": [
+        {
+            "mask": 15,
+            "type": "global"
+        },
+        {
+            "mask": 15,
+            "type": "global",
+            "account": "Administrators"
+        }
+    ]
+}

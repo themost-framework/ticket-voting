@@ -1,0 +1,22 @@
+{
+    "@id": "http://schema.org/InteractAction",
+    "name": "InteractAction",
+    "description": "The act of interacting with another person or organization.",
+    "title": "InteractAction",
+    "abstract": false,
+    "sealed": false,
+    "inherits": "Action",
+    "version": "1.0",
+    "fields": [],
+    "privileges": [
+        {
+            "mask": 15,
+            "type": "global"
+        },
+        {
+            "mask": 15,
+            "type": "global",
+            "account": "Administrators"
+        }
+    ]
+}

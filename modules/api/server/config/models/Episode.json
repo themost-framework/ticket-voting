@@ -1,0 +1,79 @@
+{
+    "@id": "http://schema.org/Episode",
+    "name": "Episode",
+    "description": "A media episode (e.g. TV, radio, video game) which can be part of a series or season.",
+    "title": "Episode",
+    "abstract": false,
+    "sealed": false,
+    "inherits": "CreativeWork",
+    "version": "1.0",
+    "fields": [
+        {
+            "@id": "http://schema.org/actor",
+            "name": "actor",
+            "title": "actor",
+            "description": "An actor, e.g. in tv, radio, movie, video games etc., or in an event. Actors can be associated with individual items or with a series, episode, clip.",
+            "type": "Person"
+        },
+        {
+            "@id": "http://schema.org/partOfSeries",
+            "name": "partOfSeries",
+            "title": "partOfSeries",
+            "description": "The series to which this episode or season belongs.",
+            "type": "CreativeWorkSeries"
+        },
+        {
+            "@id": "http://schema.org/trailer",
+            "name": "trailer",
+            "title": "trailer",
+            "description": "The trailer of a movie or tv/radio series, season, episode, etc.",
+            "type": "VideoObject"
+        },
+        {
+            "@id": "http://schema.org/partOfSeason",
+            "name": "partOfSeason",
+            "title": "partOfSeason",
+            "description": "The season to which this episode belongs.",
+            "type": "CreativeWorkSeason"
+        },
+        {
+            "@id": "http://schema.org/musicBy",
+            "name": "musicBy",
+            "title": "musicBy",
+            "description": "The composer of the soundtrack.",
+            "type": "Person"
+        },
+        {
+            "@id": "http://schema.org/episodeNumber",
+            "name": "episodeNumber",
+            "title": "episodeNumber",
+            "description": "Position of the episode within an ordered group of episodes.",
+            "type": "Integer"
+        },
+        {
+            "@id": "http://schema.org/director",
+            "name": "director",
+            "title": "director",
+            "description": "A director of e.g. tv, radio, movie, video gaming etc. content, or of an event. Directors can be associated with individual items or with a series, episode, clip.",
+            "type": "Person"
+        },
+        {
+            "@id": "http://schema.org/productionCompany",
+            "name": "productionCompany",
+            "title": "productionCompany",
+            "description": "The production company or studio responsible for the item e.g. series, video game, episode etc.",
+            "type": "Organization"
+        }
+    ],
+    "privileges": [
+        {
+            "mask": 15,
+            "type": "global"
+        },
+        {
+            "mask": 15,
+            "type": "global",
+            "account": "Administrators"
+        }
+    ]
+}

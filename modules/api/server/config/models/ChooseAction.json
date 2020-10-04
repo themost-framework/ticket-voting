@@ -1,0 +1,37 @@
+{
+    "@id": "http://schema.org/ChooseAction",
+    "name": "ChooseAction",
+    "description": "The act of expressing a preference from a set of options or a large or unbounded set of choices/options.",
+    "title": "ChooseAction",
+    "abstract": false,
+    "sealed": false,
+    "inherits": "AssessAction",
+    "version": "1.0",
+    "fields": [
+        {
+            "@id": "http://schema.org/actionOption",
+            "name": "actionOption",
+            "title": "actionOption",
+            "description": "A sub property of object. The options subject to this action.",
+            "type": "Text"
+        },
+        {
+            "@id": "http://schema.org/option",
+            "name": "option",
+            "title": "option",
+            "description": "A sub property of object. The options subject to this action.",
+            "type": "Thing"
+        }
+    ],
+    "privileges": [
+        {
+            "mask": 15,
+            "type": "global"
+        },
+        {
+            "mask": 15,
+            "type": "global",
+            "account": "Administrators"
+        }
+    ]
+}

@@ -1,0 +1,48 @@
+{
+    "@id": "http://schema.org/MapCategoryType",
+    "name": "MapCategoryType",
+    "description": "An enumeration of several kinds of Map.",
+    "title": "MapCategoryType",
+    "abstract": false,
+    "sealed": false,
+    "implements": "Enumeration",
+    "version": "1.0",
+    "fields": [],
+    "privileges": [
+        {
+            "mask": 15,
+            "type": "global"
+        },
+        {
+            "mask": 15,
+            "type": "global",
+            "account": "Administrators"
+        }
+    ],
+    "seed": [
+        {
+            "name": "ParkingMap",
+            "alternateName": "ParkingMap",
+            "description": "A parking map.",
+            "url": "http://schema.org/ParkingMap"
+        },
+        {
+            "name": "SeatingMap",
+            "alternateName": "SeatingMap",
+            "description": "A seating map.",
+            "url": "http://schema.org/SeatingMap"
+        },
+        {
+            "name": "VenueMap",
+            "alternateName": "VenueMap",
+            "description": "A venue map (e.g. for malls, auditoriums, museums, etc.).",
+            "url": "http://schema.org/VenueMap"
+        },
+        {
+            "name": "TransitMap",
+            "alternateName": "TransitMap",
+            "description": "A transit map.",
+            "url": "http://schema.org/TransitMap"
+        }
+    ]
+}

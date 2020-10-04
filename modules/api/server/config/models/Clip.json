@@ -1,0 +1,72 @@
+{
+    "@id": "http://schema.org/Clip",
+    "name": "Clip",
+    "description": "A short TV or radio program or a segment/part of a program.",
+    "title": "Clip",
+    "abstract": false,
+    "sealed": false,
+    "inherits": "CreativeWork",
+    "version": "1.0",
+    "fields": [
+        {
+            "@id": "http://schema.org/actor",
+            "name": "actor",
+            "title": "actor",
+            "description": "An actor, e.g. in tv, radio, movie, video games etc., or in an event. Actors can be associated with individual items or with a series, episode, clip.",
+            "type": "Person"
+        },
+        {
+            "@id": "http://schema.org/partOfSeries",
+            "name": "partOfSeries",
+            "title": "partOfSeries",
+            "description": "The series to which this episode or season belongs.",
+            "type": "CreativeWorkSeries"
+        },
+        {
+            "@id": "http://schema.org/partOfEpisode",
+            "name": "partOfEpisode",
+            "title": "partOfEpisode",
+            "description": "The episode to which this clip belongs.",
+            "type": "Episode"
+        },
+        {
+            "@id": "http://schema.org/partOfSeason",
+            "name": "partOfSeason",
+            "title": "partOfSeason",
+            "description": "The season to which this episode belongs.",
+            "type": "CreativeWorkSeason"
+        },
+        {
+            "@id": "http://schema.org/musicBy",
+            "name": "musicBy",
+            "title": "musicBy",
+            "description": "The composer of the soundtrack.",
+            "type": "Person"
+        },
+        {
+            "@id": "http://schema.org/director",
+            "name": "director",
+            "title": "director",
+            "description": "A director of e.g. tv, radio, movie, video gaming etc. content, or of an event. Directors can be associated with individual items or with a series, episode, clip.",
+            "type": "Person"
+        },
+        {
+            "@id": "http://schema.org/clipNumber",
+            "name": "clipNumber",
+            "title": "clipNumber",
+            "description": "Position of the clip within an ordered group of clips.",
+            "type": "Text"
+        }
+    ],
+    "privileges": [
+        {
+            "mask": 15,
+            "type": "global"
+        },
+        {
+            "mask": 15,
+            "type": "global",
+            "account": "Administrators"
+        }
+    ]
+}

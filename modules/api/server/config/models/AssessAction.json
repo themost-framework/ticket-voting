@@ -1,0 +1,22 @@
+{
+    "@id": "http://schema.org/AssessAction",
+    "name": "AssessAction",
+    "description": "The act of forming one's opinion, reaction or sentiment.",
+    "title": "AssessAction",
+    "abstract": false,
+    "sealed": false,
+    "inherits": "Action",
+    "version": "1.0",
+    "fields": [],
+    "privileges": [
+        {
+            "mask": 15,
+            "type": "global"
+        },
+        {
+            "mask": 15,
+            "type": "global",
+            "account": "Administrators"
+        }
+    ]
+}

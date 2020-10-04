@@ -1,0 +1,51 @@
+{
+    "@id": "http://schema.org/CommunicateAction",
+    "name": "CommunicateAction",
+    "description": "The act of conveying information to another person via a communication medium (instrument) such as speech, email, or telephone conversation.",
+    "title": "CommunicateAction",
+    "abstract": false,
+    "sealed": false,
+    "inherits": "InteractAction",
+    "version": "1.0",
+    "fields": [
+        {
+            "@id": "http://schema.org/about",
+            "name": "about",
+            "title": "about",
+            "description": "The subject matter of the content.",
+            "type": "Thing"
+        },
+        {
+            "@id": "http://schema.org/inLanguage",
+            "name": "inLanguage",
+            "title": "inLanguage",
+            "description": "The language of the content or performance or used in an action. Please use one of the language codes from the IETF BCP 47 standard. See also availableLanguage.",
+            "type": "Text"
+        },
+        {
+            "@id": "http://schema.org/recipient",
+            "name": "recipient",
+            "title": "recipient",
+            "description": "A sub property of participant. The participant who is at the receiving end of the action.",
+            "type": "Audience"
+        },
+        {
+            "@id": "http://schema.org/language",
+            "name": "language",
+            "title": "language",
+            "description": "A sub property of instrument. The language used on this action.",
+            "type": "Language"
+        }
+    ],
+    "privileges": [
+        {
+            "mask": 15,
+            "type": "global"
+        },
+        {
+            "mask": 15,
+            "type": "global",
+            "account": "Administrators"
+        }
+    ]
+}

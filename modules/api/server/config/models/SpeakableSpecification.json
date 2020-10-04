@@ -1,0 +1,35 @@
+{
+    "@id": "http://schema.org/SpeakableSpecification",
+    "name": "SpeakableSpecification",
+    "description": "A SpeakableSpecification indicates (typically via xpath or cssSelector) sections of a document that are highlighted as particularly speakable. Instances of this type are expected to be used primarily as values of the speakable property.",
+    "title": "SpeakableSpecification",
+    "abstract": false,
+    "sealed": false,
+    "implements": "Intangible",
+    "version": "1.0",
+    "fields": [
+        {
+            "@id": "http://schema.org/cssSelector",
+            "name": "cssSelector",
+            "title": "cssSelector",
+            "description": "A CSS selector, e.g. of a SpeakableSpecification or WebPageElement. In the latter case, multiple matches within a page can constitute a single conceptual \"Web page element\"."
+        },
+        {
+            "@id": "http://schema.org/xpath",
+            "name": "xpath",
+            "title": "xpath",
+            "description": "An XPath, e.g. of a SpeakableSpecification or WebPageElement. In the latter case, multiple matches within a page can constitute a single conceptual \"Web page element\"."
+        }
+    ],
+    "privileges": [
+        {
+            "mask": 15,
+            "type": "global"
+        },
+        {
+            "mask": 15,
+            "type": "global",
+            "account": "Administrators"
+        }
+    ]
+}

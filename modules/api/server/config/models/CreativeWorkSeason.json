@@ -1,0 +1,93 @@
+{
+    "@id": "http://schema.org/CreativeWorkSeason",
+    "name": "CreativeWorkSeason",
+    "description": "A media season e.g. tv, radio, video game etc.",
+    "title": "CreativeWorkSeason",
+    "abstract": false,
+    "sealed": false,
+    "inherits": "CreativeWork",
+    "version": "1.0",
+    "fields": [
+        {
+            "@id": "http://schema.org/actor",
+            "name": "actor",
+            "title": "actor",
+            "description": "An actor, e.g. in tv, radio, movie, video games etc., or in an event. Actors can be associated with individual items or with a series, episode, clip.",
+            "type": "Person"
+        },
+        {
+            "@id": "http://schema.org/partOfSeries",
+            "name": "partOfSeries",
+            "title": "partOfSeries",
+            "description": "The series to which this episode or season belongs.",
+            "type": "CreativeWorkSeries"
+        },
+        {
+            "@id": "http://schema.org/numberOfEpisodes",
+            "name": "numberOfEpisodes",
+            "title": "numberOfEpisodes",
+            "description": "The number of episodes in this season or series.",
+            "type": "Integer"
+        },
+        {
+            "@id": "http://schema.org/trailer",
+            "name": "trailer",
+            "title": "trailer",
+            "description": "The trailer of a movie or tv/radio series, season, episode, etc.",
+            "type": "VideoObject"
+        },
+        {
+            "@id": "http://schema.org/endDate",
+            "name": "endDate",
+            "title": "endDate",
+            "description": "The end date and time of the item (in ISO 8601 date format).",
+            "type": "Date"
+        },
+        {
+            "@id": "http://schema.org/startDate",
+            "name": "startDate",
+            "title": "startDate",
+            "description": "The start date and time of the item (in ISO 8601 date format).",
+            "type": "DateTime"
+        },
+        {
+            "@id": "http://schema.org/director",
+            "name": "director",
+            "title": "director",
+            "description": "A director of e.g. tv, radio, movie, video gaming etc. content, or of an event. Directors can be associated with individual items or with a series, episode, clip.",
+            "type": "Person"
+        },
+        {
+            "@id": "http://schema.org/productionCompany",
+            "name": "productionCompany",
+            "title": "productionCompany",
+            "description": "The production company or studio responsible for the item e.g. series, video game, episode etc.",
+            "type": "Organization"
+        },
+        {
+            "@id": "http://schema.org/episode",
+            "name": "episode",
+            "title": "episode",
+            "description": "An episode of a tv, radio or game media within a series or season.",
+            "type": "Episode"
+        },
+        {
+            "@id": "http://schema.org/seasonNumber",
+            "name": "seasonNumber",
+            "title": "seasonNumber",
+            "description": "Position of the season within an ordered group of seasons.",
+            "type": "Integer"
+        }
+    ],
+    "privileges": [
+        {
+            "mask": 15,
+            "type": "global"
+        },
+        {
+            "mask": 15,
+            "type": "global",
+            "account": "Administrators"
+        }
+    ]
+}
