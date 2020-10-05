@@ -7,7 +7,7 @@
     "abstract": false,
     "sealed": false,
     "inherits": "RegisterAction",
-    "version": "1.0",
+    "version": "1.2",
     "fields": [
         {
             "@id": "http://schema.org/electionEvent",
@@ -21,7 +21,22 @@
             "name": "object",
             "title": "object",
             "description": "The candidate which is being registered through this action.",
-            "type": "Person"
+            "type": "Party"
+        },{
+            "@id": "http://schema.org/agreeTerms",
+            "name": "agreeTerms",
+            "title": "agreeTerms",
+            "type": "Boolean"
+        },{
+            "@id": "http://schema.org/agreeData",
+            "name": "agreeData",
+            "title": "agreeData",
+            "type": "Boolean"
+        },{
+            "@id": "http://schema.org/shareEmail",
+            "name": "shareEmail",
+            "title": "shareEmail",
+            "type": "Boolean"
         }
     ],
     "privileges": [

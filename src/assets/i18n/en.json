@@ -10,5 +10,9 @@
   "Privacy": "Privacy",
   "Terms": "Terms",
   "FirstName": "First name",
-  "LastName": "Last name"
+  "LastName": "Last name",
+  "CandidacyForm": "Candidacy Application Form",
+  "Apply": "Apply",
+  "EmailHelp": "Set your email address. This address will be used to send you notifications about your candidacy.",
+  "EmailInvalid": "Please enter a valid email address."
 }
