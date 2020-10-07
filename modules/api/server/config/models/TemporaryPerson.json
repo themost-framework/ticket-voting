@@ -1,0 +1,25 @@
+{
+  "$schema": "https://themost-framework.github.io/themost/models/2018/2/schema.json",
+    "@id": "http://schema.org/TemporaryPerson",
+    "name": "TemporaryPerson",
+    "description": "A temporary person record.",
+    "title": "TemporaryPerson",
+    "hidden": true,
+    "abstract": false,
+    "sealed": false,
+    "inherits": "Person",
+    "version": "1.0",
+    "fields": [
+    ],
+    "privileges": [
+        {
+            "mask": 15,
+            "type": "global"
+        },
+        {
+            "mask": 15,
+            "type": "global",
+            "account": "Administrators"
+        }
+    ]
+}

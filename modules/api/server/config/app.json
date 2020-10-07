@@ -15,6 +15,13 @@
                 "en"
             ],
             "defaultLocale": "en"
+        },
+        "mail": {
+            "host": "mail.example.com",
+            "port": 25,
+            "secure": false,
+            "ignoreTLS": true,
+            "from":"tick-n-vote \\(No-Reply)<support@example.com>"
         }
     },
     "adapterTypes": [

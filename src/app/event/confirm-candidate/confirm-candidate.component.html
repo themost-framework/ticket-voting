@@ -1,0 +1,19 @@
+<div class="card border-0">
+  <div class="card-body">
+    <ng-container *ngIf="!confirmed">
+      <h5 class="card-title" [translate]="'ConfirmCandidacy'"></h5>
+      <p class="card-text" [translate]="'ConfirmCandidacyHelp'">
+      </p>
+      <button type="button" (click)="confirm()" class="btn btn-primary" [translate]="'Confirm'"></button>
+    </ng-container>
+    <ng-container *ngIf="confirmed">
+      <div class="text-center">
+        <div>
+          <i class="fa fa-2x bg-success p-4 rounded-circle text-white fa-check"></i>
+        </div>
+        <p class="card-text mt-3" [translate]="'ConfirmCandidacyCompleted'">
+        </p>
+      </div>
+    </ng-container>
+  </div>
+</div>

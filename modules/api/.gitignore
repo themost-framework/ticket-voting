@@ -120,3 +120,7 @@ dist
 .idea
 .vscode
 .DS_Store
+
+# application
+server/config/app.*.json
+core

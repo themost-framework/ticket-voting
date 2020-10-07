@@ -35,8 +35,8 @@ function onError(error) {
     throw error;
   }
   let bind = typeof port === 'string'
-      ? 'Pipe ' + port
-      : 'Port ' + port;
+    ? 'Pipe ' + port
+    : 'Port ' + port;
 
   // handle specific listen errors with friendly messages
   switch (error.code) {
@@ -59,5 +59,5 @@ function onError(error) {
 function onListening() {
   let addr = server.address();
   // eslint-disable-next-line no-console
-  console.log( new Date().toUTCString(), '[INFO]', 'Listening on ' + addr.address + ':' + addr.port);
+  console.log(new Date().toUTCString(), '[INFO]', 'Listening on ' + addr.address + ':' + addr.port);
 }

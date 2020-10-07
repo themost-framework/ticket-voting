@@ -12,6 +12,8 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { environment } from '../environments/environment';
 import { MostModule } from '@themost/angular';
+import { ModalModule } from 'ngx-bootstrap/modal';
+import { SharedModule } from './shared/shared.module';
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
 }
@@ -40,7 +42,9 @@ export function HttpLoaderFactory(http: HttpClient) {
         useMediaTypeExtensions: false,
         useResponseConversion: true
       }
-    })
+    }),
+    ModalModule.forRoot(),
+    SharedModule
   ],
   providers: [
     {

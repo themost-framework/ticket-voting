@@ -16,11 +16,12 @@
         "declaration": true,
         "strict": true,
         "stripInternal": true,
+        "allowSyntheticDefaultImports": true,
         "typeRoots": [
             "node_modules/@types"
         ],
         "lib": [
-            "es2017", 
+            "es2017",
             "dom"
         ]
     },

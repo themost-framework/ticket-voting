@@ -21,7 +21,8 @@
             "name": "object",
             "title": "object",
             "description": "The candidate which is being registered through this action.",
-            "type": "Party"
+            "type": "Person",
+            "nullable": true
         },{
             "@id": "http://schema.org/agreeTerms",
             "name": "agreeTerms",
@@ -39,10 +40,21 @@
             "type": "Boolean"
         }
     ],
+    "eventListeners": [
+      {
+        "type": "./listeners/get-register-candidate-action-listener"
+      }
+    ],
     "privileges": [
         {
             "mask": 15,
             "type": "global"
+        },
+        {
+          "mask": 2,
+          "type": "self",
+          "filter": "actionStatus/alternateName eq 'PotentialActionStatus'",
+          "account": "Guests"
         },
         {
             "mask": 15,

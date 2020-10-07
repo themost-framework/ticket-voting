@@ -1,4 +1,148 @@
 {
+  "E0": {
+        "title": "Αποτυχία σύνδεσης",
+        "message": "Η σύνδεση με το διακομιστή απέτυχε. Προσπαθήστε ξανά"
+    },
+    "E400": {
+        "title": "Εσφαλμένη αίτηση",
+        "message": "Το αίτημα δεν μπορεί να ικανοποιηθεί λόγω κακής σύνταξης.",
+        "1": {
+          "title": "Η συνεδρία σας έληξε",
+          "message": "Παρακαλούμε συνδεθείτε ξανά."
+        }
+    },
+    "E401": {
+        "title": "Μη εξουσιοδοτημένη πρόσβαση",
+        "message": "Η πρόσβαση δεν επιτρέπεται λόγω μη έγκυρων διαπιστευτηρίων.",
+        "1": {
+            "title": "Απαιτείται ενεργή σύνδεση",
+            "message": "Η πρόσβαση δεν επιτρέπεται λόγω μη έγκυρων διαπιστευτηρίων ή η διάρκεια της σύνδεσης σας έχει λήξει."
+        }
+    },
+    "E403": {
+        "title": "Απαγόρευση",
+        "message": "Ο διακομιστής κατανόησε το αίτημα, αλλά αρνείται να το εκπληρώσει.",
+        "1": {
+            "title": "Δεν επιτρέπεται η πρόσβαση",
+            "message": "Ο διακομιστής κατανόησε το αίτημα, αλλά δεν έχετε την κατάλληλη άδεια πρόσβασης σε αυτόν τον πόρο."
+        },
+      "2": {
+          "title": "Δεν επιτρέπεται η πρόσβαση",
+          "message": "Ο διακομιστής κατανόησε το αίτημα, αλλά δεν είστε ενεργός χρήστης και δεν δεν έχετε άδεια πρόσβασης σε αυτόν τον πόρο"
+      },
+      "3": {
+        "title": "Δεν επιτρέπεται η πρόσβαση",
+        "message": "Ο διακομιστής κατανόησε το αίτημα, αλλά δεν υπάρχουν ενεργά τμήματα σε αυτόν τον πόρο  ή ο χρήστης δεν έχει δικαιώματα σε κάποιο από τα τμήματα του ιδρύματος."
+      }
+    },
+    "E404": {
+        "title": "Δεν βρέθηκε",
+        "message": "Ο πόρος δεν ήταν δυνατό να βρεθεί αλλά μπορεί να είναι και πάλι διαθέσιμος στο μέλλον.",
+        "1": {
+            "title": "Το προφίλ σας δε βρέθηκε",
+            "message": "Προσπαθήστε ξανά. Εάν το πρόβλημα παραμείνει επικοινωνήστε με τους διαχειριστές του συστήματος σας."
+        },
+        "2": {
+            "title": "Το προφίλ του χρήστη δεν βρέθηκε",
+            "message": "Προσπαθήστε ξανά. Εάν το πρόβλημα παραμείνει επικοινωνήστε με τους διαχειριστές του συστήματος σας."
+        },
+        "3": {
+            "title": "Η αίτηση δεν βρέθηκε",
+            "message": "Προσπαθήστε ξανά. Εάν το πρόβλημα παραμείνει επικοινωνήστε με τους διαχειριστές του συστήματος σας."
+        },
+        "4": {
+            "title": "Το συμβόλαιο δεν βρέθηκε",
+            "message": "Προσπαθήστε ξανά. Εάν το πρόβλημα παραμείνει επικοινωνήστε με τους διαχειριστές του συστήματος σας."
+        }
+    },
+    "E405": {
+        "title": "Δεν επιτρέπεται η εφαρμογή της μεθόδου",
+        "message": "Ζητήθηκε ένας πόρος χρησιμοποιώντας μια μέθοδο αίτησης που δεν υποστηρίζεται από αυτόν τον πόρο."
+    },
+    "E406": {
+        "title": "Δεν είναι αποδεκτό",
+        "message": "Ο πόρος είναι ικανός να παράγει περιεχόμενο μη αποδεκτό σύμφωνα με τις κεφαλίδες Accept που αποστέλλονται στην αίτηση."
+    },
+    "E407": {
+        "title": "Απαιτείται έλεγχος ταυτότητας διακομιστή μεσολάβησης",
+        "message": "Ο πελάτης πρέπει πρώτα να επικυρώσει τον εαυτό του με το διακομιστή μεσολάβησης."
+    },
+    "E408": {
+        "title": "Χρονικό όριο αίτησης",
+        "message": "The server timed out waiting for the request.",
+      "1": {
+        "title": "Αποτυχία σύνδεσης",
+        "message": "Η σύνδεση με το διακομιστή απέτυχε. Προσπαθήστε ξανά"
+      }
+    },
+    "E409": {
+        "title": "Conflict",
+        "message": "The request could not be completed due to a conflict with the current state of the resource."
+    },
+    "E410": {
+        "title": "Gone",
+        "message": "The resource requested is no longer available and will not be available again."
+    },
+    "E411": {
+        "title": "Length Required",
+        "message": "The request did not specify the length of its content, which is required by the requested resource."
+    },
+    "E412": {
+        "title": "Precondition Failed",
+        "message": "The server does not meet one of the preconditions that the requester put on the request."
+    },
+    "E413": {
+        "title": "Request Entity Too Large",
+        "message": "The request is larger than the server is willing or able to process."
+    },
+    "E414": {
+        "title": "Request-URI Too Long",
+        "message": "The URI provided was too long for the server to process."
+    },
+    "E415": {
+        "title": "Request Entity Too Large",
+        "message": "The request is larger than the server is willing or able to process."
+    },
+    "E416": {
+        "title": "Requested Range Not Satisfiable",
+        "message": "The client has asked for a portion of the file, but the server cannot supply that portion."
+    },
+    "E417": {
+      "title": "Expectation Failed",
+      "message": "The server cannot meet the requirements of the Expect request-header field."
+    },
+    "E422": {
+      "title": "Μη έγκυρο αρχείο",
+      "message": "Ο διακομιστής δεν μπορεί να επεξεργαστεί τα δεδομένα του αρχείου."
+    },
+    "E496": {
+        "title": "No Cert",
+        "message": "The client must provide a certificate to fulfill the request."
+    },
+    "E498": {
+        "title": "Token expired",
+        "message": "Token was expired or is in invalid state."
+    },
+    "E499": {
+        "title": "Token required",
+        "message": "A token is required to fulfill the request."
+    },
+    "E500": {
+        "title": "Εσωτερικό σφάλμα διακομιστή",
+        "message": "Ο διακομιστής αντιμετώπισε ένα εσωτερικό σφάλμα και δεν μπόρεσε να ολοκληρώσει το αίτημά σας."
+    },
+    "E501": {
+        "title": "Not Implemented",
+        "message": "The server either does not recognize the request method, or it lacks the ability to fulfil the request."
+    },
+    "E502": {
+        "title": "Bad Gateway",
+        "message": "The server was acting as a gateway or proxy and received an invalid response from the upstream server."
+    },
+    "E503": {
+        "title": "Service Unavailable",
+        "message": "The server is currently unavailable (because it is overloaded or down for maintenance)."
+    },
   "Features": "Χαρακτηριστικά",
   "Support": "Υποστήριξη",
   "Signup": "Εγγραφή",
@@ -11,6 +155,7 @@
   "Terms": "Κανόνες χρήσης",
   "FirstName": "Όνομα",
   "LastName": "Επώνυμο",
+  "JobTitle": "Επάγγελμα",
   "CandidacyForm": "Φόρμα υποβολής υποψηφιότητας",
   "Apply": "Υποβολή",
   "EmailHelp": "Ορίστε την διεύθυνσή ηλεκτρονικού ταχυδρομείου σας. Η διεύθυνση αυτή θα χρησιμοποιηθεί για να λαμβάνετε ειδοποιήσεις σχετικά με την υποψηφιότητά σας.",
@@ -22,5 +167,12 @@
   "RequiredError": "Το πεδίο αυτό είναι υποχρεωτικό",
   "AgreeTerms": "Συμφωνώ με τους όρους και τις προϋποθέσεις χρήσης",
   "AgreeData": "Συναινώ με την χρήση των στοιχείων που περιλαμβάνονται σε αυτή την φόρμα στις διαδικασίες της ψηφοφορίας για την οποία καταθέτω την υποψηφιότητά μου",
-  "ShareEmail": "Η παραπάνω διεύθυνση ηλεκτρονικού ταχυδρομείου θα είναι ορατή στις διαδικασίες της ψηφοφορίας για την οποία καταθέτω την υποψηφιότητά μου"
+  "ShareEmail": "Η παραπάνω διεύθυνση ηλεκτρονικού ταχυδρομείου θα είναι ορατή στις διαδικασίες της ψηφοφορίας για την οποία καταθέτω την υποψηφιότητά μου",
+  "FormSubmitHelp": "Μετά την υποβολή θα λάβετε ένα μήνυμα ηλεκτρονικού ταχυδρομείου για την επικύρωση της υποψηφιότητάς σας. Ακολουθήστε τις οδηγίες του μηνύματος για ολοκληρώσετε την κατάθεση της υποψηφιότητάς σας.",
+  "Close": "Κλείσιμο",
+  "ErrorTitle": "Συνέβη σφάλμα",
+  "ConfirmCandidacy": "Ολοκλήρωση υποψηφιότητας",
+  "ConfirmCandidacyHelp": "Για να ολοκληρώσετε την κατάθεση της υποψηφιότητάς σας πατήστε το πλήκτρο 'Ολοκλήρωση'.",
+  "Confirm": "Ολοκλήρωση",
+  "ConfirmCandidacyCompleted": "Η κατάθεση της υποψηφιότητάς σας ολοκληρώθηκε. Σας ευχόμαστε καλή επιτυχία."
 }

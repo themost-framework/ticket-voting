@@ -10,6 +10,7 @@ import * as logger from 'morgan';
 import * as sassMiddleware from 'node-sass-middleware';
 import { ExpressDataApplication, serviceRouter, dateReviver } from '@themost/express';
 import { authRouter } from './routes/auth';
+import { extraRouter } from './routes/extras';
 
 /**
  * @name Request#context
@@ -57,7 +58,7 @@ app.use(cookieSession({
   keys: [secret]
 }));
 // use data middleware (register req.context)
-app.use(dataApplication.middleware());
+app.use(dataApplication.middleware(app));
 // use passport
 app.use(authRouter(passport));
 // use sass middleware
@@ -67,12 +68,14 @@ app.use(sassMiddleware({
   indentedSyntax: false, // true = .sass and false = .scss
   sourceMap: true
 }));
+
 // use static content
 app.use(express.static(join(process.cwd(), 'public')));
 
+// extra router
+app.use('/api', extraRouter());
 // use @themost/express service router
 app.use('/api', serviceRouter);
-
 // error handler
 app.use(<ErrorRequestHandler>(err, req, res) => {
   // set locals, only providing error in development

@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { AddCandidateComponent } from './add-candidate/add-candidate.component';
 import { EventHomeComponent } from './event-home/event-home.component';
 import { CandidateListComponent } from './candidate-list/candidate-list.component';
+import { ConfirmCandidateComponent } from './confirm-candidate/confirm-candidate.component';
 
 const routes: Routes = [{
   path: ':id',
@@ -17,6 +18,9 @@ const routes: Routes = [{
       component: AddCandidateComponent
     }
   ]
+}, {
+  path: 'candidates/confirm',
+  component: ConfirmCandidateComponent
 }];
 
 @NgModule({

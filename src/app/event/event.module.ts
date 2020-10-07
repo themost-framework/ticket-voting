@@ -7,10 +7,12 @@ import { CandidateListComponent } from './candidate-list/candidate-list.componen
 import { EventHomeComponent } from './event-home/event-home.component';
 import { MostModule } from '@themost/angular';
 import { TranslateModule } from '@ngx-translate/core';
-import {FormsModule} from '@angular/forms'
+import { FormsModule } from '@angular/forms'
+import { SharedModule } from '../shared/shared.module';
+import { ConfirmCandidateComponent } from './confirm-candidate/confirm-candidate.component';
 
 @NgModule({
-  declarations: [CandidateComponent, AddCandidateComponent, CandidateListComponent, EventHomeComponent],
+  declarations: [CandidateComponent, AddCandidateComponent, CandidateListComponent, EventHomeComponent, ConfirmCandidateComponent],
   imports: [
     CommonModule,
     FormsModule,
@@ -18,7 +20,8 @@ import {FormsModule} from '@angular/forms'
     TranslateModule.forChild({
       isolate: false
     }),
-    EventRoutingModule
+    EventRoutingModule,
+    SharedModule
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA
