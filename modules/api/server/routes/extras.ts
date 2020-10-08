@@ -49,5 +49,28 @@ export function extraRouter(): Router {
     }
   });
 
+  router.post("/ElectionEvents/Candidates/Validate", async (req, res, next) => {
+    try {
+      if (req.body.code == null) {
+        throw new HttpBadRequestError('Register action code is missing or is inaccessible');
+      }
+      // decrypt identifier
+      const decryptedIdentifier = req.context.getApplication().getService<EncryptionStrategy>(<any>EncryptionStrategy).decrypt(req.body.code);
+      const action = await req.context.model(RegisterCandidateAction)
+        .where('identifier').equal(decryptedIdentifier)
+        .expand('actionStatus', 'object', 'electionEvent')
+        .levels(2)
+        .silent()
+        .getItem();
+      if (action == null) {
+        return next(new HttpNotFoundError("The specified register action cannot be found."));
+      }
+      return res.json(action);
+    }
+    catch (err) {
+      return next(err);
+    }
+  });
+
   return router;
 }
