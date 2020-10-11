@@ -1,0 +1,51 @@
+{
+    "@id": "http://schema.org/Seat",
+    "name": "Seat",
+    "description": "Used to describe a seat, such as a reserved seat in an event reservation.",
+    "title": "Seat",
+    "abstract": false,
+    "sealed": false,
+    "implements": "Intangible",
+    "version": "1.0",
+    "fields": [
+        {
+            "@id": "http://schema.org/seatingType",
+            "name": "seatingType",
+            "title": "seatingType",
+            "description": "The type/class of the seat.",
+            "type": "Text"
+        },
+        {
+            "@id": "http://schema.org/seatSection",
+            "name": "seatSection",
+            "title": "seatSection",
+            "description": "The section location of the reserved seat (e.g. Orchestra).",
+            "type": "Text"
+        },
+        {
+            "@id": "http://schema.org/seatRow",
+            "name": "seatRow",
+            "title": "seatRow",
+            "description": "The row location of the reserved seat (e.g., B).",
+            "type": "Text"
+        },
+        {
+            "@id": "http://schema.org/seatNumber",
+            "name": "seatNumber",
+            "title": "seatNumber",
+            "description": "The location of the reserved seat (e.g., 27).",
+            "type": "Text"
+        }
+    ],
+    "privileges": [
+        {
+            "mask": 15,
+            "type": "global"
+        },
+        {
+            "mask": 15,
+            "type": "global",
+            "account": "Administrators"
+        }
+    ]
+}

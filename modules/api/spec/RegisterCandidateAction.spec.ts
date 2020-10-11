@@ -16,7 +16,7 @@ describe("RegisterCandidateAction", () => {
       return done();
     });
   });
-  fit("should register candidate", async () => {
+  it("should register candidate", async () => {
     await TestUtils.executeInTransaction(context, async () => {
 
       const newElection = {
@@ -47,7 +47,7 @@ describe("RegisterCandidateAction", () => {
         }
       };
       await context.model(RegisterCandidateAction).save(newItem);
-      let item: RegisterCandidateAction = await context.model(RegisterCandidateAction)
+      let item: any = await context.model(RegisterCandidateAction)
         .where('id').equal((<any>newItem).id)
         .expand('object', 'electionEvent')
         .silent()

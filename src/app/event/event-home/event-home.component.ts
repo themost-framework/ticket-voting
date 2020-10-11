@@ -20,6 +20,15 @@ export class EventHomeComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.paramSuscription = this._activatedRoute.params.subscribe((params) => {
+
+      if (params.id === 'current') {
+        return this._context.model('ElectionEvents/Current')
+          .asQueryable()
+          .getItem().then((result) => {
+            this.model = result;
+          });
+      }
+
       this._context.model('ElectionEvents')
         .where('identifier').equal(params.id)
         .getItem().then((result) => {

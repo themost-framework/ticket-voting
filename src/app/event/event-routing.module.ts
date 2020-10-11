@@ -4,6 +4,7 @@ import { AddCandidateComponent } from './add-candidate/add-candidate.component';
 import { EventHomeComponent } from './event-home/event-home.component';
 import { CandidateListComponent } from './candidate-list/candidate-list.component';
 import { ConfirmCandidateComponent } from './confirm-candidate/confirm-candidate.component';
+import { VoteComponent } from './vote/vote.component';
 
 const routes: Routes = [{
   path: ':id',
@@ -16,9 +17,14 @@ const routes: Routes = [{
     {
       path: 'candidates/apply',
       component: AddCandidateComponent
+    },
+    {
+      path: 'vote',
+      component: VoteComponent
     }
   ]
-}, {
+},
+{
   path: 'candidates/confirm',
   component: ConfirmCandidateComponent
 }];

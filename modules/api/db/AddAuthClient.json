@@ -1,0 +1,5 @@
+{
+  "name": "Authorization client for an election",
+  "electionEvent": 9,
+  "redirect_uri": "https://ticket-voting.preview.themost.io/*"
+}

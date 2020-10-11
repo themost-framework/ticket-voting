@@ -14,6 +14,7 @@ import { environment } from '../environments/environment';
 import { MostModule } from '@themost/angular';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { SharedModule } from './shared/shared.module';
+import { AuthModule } from './auth/auth.module';
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
 }
@@ -44,7 +45,8 @@ export function HttpLoaderFactory(http: HttpClient) {
       }
     }),
     ModalModule.forRoot(),
-    SharedModule
+    SharedModule,
+    AuthModule
   ],
   providers: [
     {

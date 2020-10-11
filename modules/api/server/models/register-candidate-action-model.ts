@@ -21,4 +21,4 @@ class RegisterCandidateAction extends RegisterAction {
   }
 }
 
-export = RegisterCandidateAction;
+export default RegisterCandidateAction;

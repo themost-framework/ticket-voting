@@ -10,9 +10,10 @@ import { TranslateModule } from '@ngx-translate/core';
 import { FormsModule } from '@angular/forms'
 import { SharedModule } from '../shared/shared.module';
 import { ConfirmCandidateComponent } from './confirm-candidate/confirm-candidate.component';
+import { VoteComponent } from './vote/vote.component';
 
 @NgModule({
-  declarations: [CandidateComponent, AddCandidateComponent, CandidateListComponent, EventHomeComponent, ConfirmCandidateComponent],
+  declarations: [CandidateComponent, AddCandidateComponent, CandidateListComponent, EventHomeComponent, ConfirmCandidateComponent, VoteComponent],
   imports: [
     CommonModule,
     FormsModule,

@@ -1,0 +1,39 @@
+{
+    "$schema": "https://themost-framework.github.io/themost/models/2018/2/schema.json",
+   "@id": "https://themost.io/schemas/ElectionAuthClient",
+    "name": "ElectionAuthClient",
+    "description": "An authorization client for a specific election.",
+    "title": "ElectionAuthClient",
+    "abstract": false,
+    "sealed": false,
+    "inherits": "AuthClient",
+    "version": "0.1",
+    "fields": [
+        {
+            "@id": "https://themost.io/schemas/electionEvent",
+            "name": "electionEvent",
+            "title": "electionEvent",
+            "description": "The election associated with this client.",
+            "type": "ElectionEvent"
+        }
+    ],
+    "constraints": [
+      {
+        "type": "unique",
+        "fields": [
+          "electionEvent"
+        ]
+      }
+    ],
+    "privileges": [
+        {
+            "mask": 15,
+            "type": "global"
+        },
+        {
+            "mask": 15,
+            "type": "global",
+            "account": "Administrators"
+        }
+    ]
+}

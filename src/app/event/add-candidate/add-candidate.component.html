@@ -1,4 +1,4 @@
-<form #form="ngForm" *ngIf="!showSubmitted" (submit)="submit()" class="needs-validation" novalidate>
+<form #form="ngForm" *ngIf="!showSubmitted" (submit)="submit()" novalidate>
   <div class="row">
     <div class="col-12 my-4">
       <div class="text-center">
@@ -110,7 +110,7 @@
     <div>
       <i class="fa fa-2x bg-success p-4 rounded-circle text-white fa-check"></i>
     </div>
-    <p class="card-text mt-3" [translate]="'SubmitCandidacyCompleted'">
+    <p class="card-text mt-3" [translate]="'SubmitVoteCompleted'">
     </p>
   </div>
 </ng-template>

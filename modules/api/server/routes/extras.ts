@@ -1,7 +1,8 @@
 import { Router } from 'express'
-import { HttpNotFoundError, HttpBadRequestError } from '@themost/common';
+import { HttpNotFoundError, HttpBadRequestError, HttpTokenExpiredError, HttpTokenRequiredError } from '@themost/common';
 import RegisterCandidateAction = require('../models/register-candidate-action-model');
 import { EncryptionStrategy } from '@themost/web';
+import VoteAccessToken = require('../models/vote-access-token-model');
 
 export function extraRouter(): Router {
   const router = Router();
@@ -71,6 +72,5 @@ export function extraRouter(): Router {
       return next(err);
     }
   });
-
   return router;
 }

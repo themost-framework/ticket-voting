@@ -1,0 +1,79 @@
+{
+    "@id": "http://schema.org/Ticket",
+    "name": "Ticket",
+    "description": "Used to describe a ticket to an event, a flight, a bus ride, etc.",
+    "title": "Ticket",
+    "abstract": false,
+    "sealed": false,
+    "implements": "Intangible",
+    "version": "1.0",
+    "fields": [
+        {
+            "@id": "http://schema.org/underName",
+            "name": "underName",
+            "title": "underName",
+            "description": "The person or organization the reservation or ticket is for.",
+            "type": "Person"
+        },
+        {
+            "@id": "http://schema.org/dateIssued",
+            "name": "dateIssued",
+            "title": "dateIssued",
+            "description": "The date the ticket was issued.",
+            "type": "Date"
+        },
+        {
+            "@id": "http://schema.org/totalPrice",
+            "name": "totalPrice",
+            "title": "totalPrice",
+            "description": "The total price for the reservation or ticket, including applicable taxes, shipping etc",
+            "type": "Text"
+        },
+        {
+            "@id": "http://schema.org/priceCurrency",
+            "name": "priceCurrency",
+            "title": "priceCurrency",
+            "description": "The currency of the price, or a price component when attached to PriceSpecification and its subtypes.Use standard formats: ISO 4217 currency format e.g. USD",
+            "type": "Text"
+        },
+        {
+            "@id": "http://schema.org/ticketNumber",
+            "name": "ticketNumber",
+            "title": "ticketNumber",
+            "description": "The unique identifier for the ticket.",
+            "type": "Text"
+        },
+        {
+            "@id": "http://schema.org/issuedBy",
+            "name": "issuedBy",
+            "title": "issuedBy",
+            "description": "The organization issuing the ticket or permit.",
+            "type": "Organization"
+        },
+        {
+            "@id": "http://schema.org/ticketToken",
+            "name": "ticketToken",
+            "title": "ticketToken",
+            "description": "Reference to an asset (e.g., Barcode, QR code image or PDF) usable for entrance.",
+            "type": "URL"
+        },
+        {
+            "@id": "http://schema.org/ticketedSeat",
+            "name": "ticketedSeat",
+            "title": "ticketedSeat",
+            "description": "The seat associated with the ticket.",
+            "type": "Seat"
+        }
+    ],
+    "privileges": [
+        {
+            "mask": 15,
+            "type": "global"
+        },
+        {
+            "mask": 15,
+            "type": "global",
+            "account": "Administrators"
+        }
+    ]
+}

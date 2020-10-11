@@ -1,0 +1,16 @@
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title>tick-n-vote | online voting application</title>
+  <base href="/">
+</head>
+
+<body>
+  <script type="text/javascript">
+    var base = window.document.querySelector('head base').getAttribute('href');
+    window.location.href = base + "#/auth/callback?" + (window.location.search ? window.location.search.substring(1) : window.location.hash.substring(1));
+  </script>
+</body>
+
+</html>

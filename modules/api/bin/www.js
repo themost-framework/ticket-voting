@@ -61,3 +61,7 @@ function onListening() {
   // eslint-disable-next-line no-console
   console.log(new Date().toUTCString(), '[INFO]', 'Listening on ' + addr.address + ':' + addr.port);
 }
+// nodemon quit event
+process.once('SIGUSR2', function () {
+  process.kill(process.pid, 'SIGUSR2');
+});

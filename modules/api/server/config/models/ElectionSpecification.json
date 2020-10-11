@@ -1,19 +1,24 @@
 {
-    "@id": "http://schema.org/LocationFeatureSpecification",
-    "name": "LocationFeatureSpecification",
-    "description": "Specifies a location feature by providing a structured value representing a feature of an accommodation as a property-value pair of varying degrees of formality.",
-    "title": "LocationFeatureSpecification",
+    "@id": "http://schema.org/ElectionSpecification",
+    "name": "ElectionSpecification",
+    "description": "A structured value providing information about an election.",
+    "title": "ElectionSpecification",
     "abstract": false,
     "sealed": false,
-    "inherits": "PropertyValue",
+    "inherits": "StructuredValue",
     "version": "1.0",
     "fields": [
         {
-            "@id": "http://schema.org/hoursAvailable",
-            "name": "hoursAvailable",
-            "title": "hoursAvailable",
-            "description": "The hours during which this service or contact is available.",
-            "type": "OpeningHoursSpecification"
+            "@id": "http://schema.org/minimumSelection",
+            "name": "minimumSelection",
+            "title": "minimumSelection",
+            "type": "Integer"
+        },
+         {
+            "@id": "http://schema.org/maximumSelection",
+            "name": "maximumSelection",
+            "title": "maximumSelection",
+            "type": "Integer"
         },
         {
             "@id": "http://schema.org/validFrom",

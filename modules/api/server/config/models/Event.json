@@ -10,6 +10,14 @@
     "version": "1.0",
     "fields": [
         {
+            "@id": "https://themost.io/schemas/id",
+            "name": "id",
+            "title": "ID",
+            "description": "The identifier of the item.",
+            "type": "Integer",
+            "primary": true
+        },
+        {
             "@id": "http://schema.org/about",
             "name": "about",
             "title": "about",

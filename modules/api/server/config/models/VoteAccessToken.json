@@ -1,0 +1,49 @@
+{
+    "$schema": "https://themost-framework.github.io/themost/models/2018/2/schema.json",
+    "@id": "http://schema.org/VoteAccessToken",
+    "name": "VoteAccessToken",
+    "description": "An access token provided for voting for election.",
+    "title": "VoteAccessToken",
+    "abstract": false,
+    "sealed": false,
+    "inherits": "AccessToken",
+    "version": "1.0",
+    "fields": [
+        {
+            "@id": "http://schema.org/electionEvent",
+            "name": "electionEvent",
+            "title": "electionEvent",
+            "type": "ElectionEvent",
+            "nullable": false
+        },
+        {
+            "@id": "https://themost.io/schemas/scope",
+            "name": "scope",
+            "title": "Scope",
+            "description": "Scope is used to limit the authorization granted to the client by the resource owner.",
+            "type": "Text",
+            "readonly": true,
+            "value":"javascript:return 'vote';"
+        }
+    ],
+    "constraints": [
+      {
+        "type": "unique",
+        "fields": [
+          "user_id",
+          "electionEvent"
+        ]
+      }
+    ],
+    "privileges": [
+        {
+            "mask": 15,
+            "type": "global"
+        },
+        {
+            "mask": 15,
+            "type": "global",
+            "account": "Administrators"
+        }
+    ]
+}

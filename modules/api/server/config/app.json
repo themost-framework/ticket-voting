@@ -1,7 +1,10 @@
 {
     "settings": {
+        "app": {
+          "origin": "https://ticket-voting.preview.themost.io"
+        },
         "crypto": {
-            "algorithm": "sha256",
+            "algorithm": "aes192",
             "key": "1c3ef0115dba5294ae95ed4dae9e01b3bcf8c1540dbc1eb27193b064adf30436a40a49aad4167d238cc09c8d49a199a0"
         },
         "auth": {

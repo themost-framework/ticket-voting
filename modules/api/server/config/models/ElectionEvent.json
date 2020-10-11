@@ -1,4 +1,5 @@
 {
+  "$schema": "https://themost-framework.github.io/themost/models/2018/2/schema.json",
     "@id": "http://schema.org/ElectionEvent",
     "name": "ElectionEvent",
     "description": "Event type: Social event.",
@@ -6,8 +7,30 @@
     "abstract": false,
     "sealed": false,
     "inherits": "Event",
-    "version": "1.0",
-    "fields": [],
+    "version": "1.1",
+    "fields": [
+        {
+            "@id": "https://themost.io/schemas/id",
+            "name": "id",
+            "title": "ID",
+            "description": "The identifier of the item.",
+            "type": "Integer",
+            "primary": true
+        },
+        {
+            "@id": "http://schema.org/specification",
+            "name": "specification",
+            "title": "specification",
+            "type": "ElectionSpecification",
+            "nested": true,
+            "expandable": true
+        }
+    ],
+    "eventListeners": [
+      {
+        "type": "./listeners/set-election-auth-client-listener"
+      }
+    ],
     "privileges": [
         {
             "mask": 1,

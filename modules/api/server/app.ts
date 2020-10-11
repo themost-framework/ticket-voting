@@ -11,6 +11,7 @@ import * as sassMiddleware from 'node-sass-middleware';
 import { ExpressDataApplication, serviceRouter, dateReviver } from '@themost/express';
 import { authRouter } from './routes/auth';
 import { extraRouter } from './routes/extras';
+import { voteRouter } from './routes/vote';
 
 /**
  * @name Request#context
@@ -74,6 +75,8 @@ app.use(express.static(join(process.cwd(), 'public')));
 
 // extra router
 app.use('/api', extraRouter());
+// vote router
+app.use('/api', passport.authenticate('bearer', { session: false }), voteRouter());
 // use @themost/express service router
 app.use('/api', serviceRouter);
 // error handler

@@ -3,5 +3,10 @@
     "target": "http://localhost:3030",
     "secure": true,
     "logLevel": "debug"
+  },
+  "/auth/*": {
+    "target": "http://localhost:3030",
+    "secure": true,
+    "logLevel": "debug"
   }
 }
