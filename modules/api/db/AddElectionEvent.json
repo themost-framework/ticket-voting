@@ -7,7 +7,7 @@
   "specification": {
     "minimumSelection": 0,
     "maximumSelection": 5,
-    "validFrom": "2020-10-15 16:00:00.000+02:00",
+    "validFrom": "2020-10-10 16:00:00.000+02:00",
     "validThrough": "2020-10-15 21:00:00.000+02:00"
   }
 }

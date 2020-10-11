@@ -24,6 +24,7 @@ export class VoteComponent implements OnInit, OnDestroy {
 
   public model: any;
   public completed = false;
+  public formInvalid = true;
   private querySubscription: Subscription;
 
   ngOnInit(): void {
@@ -41,6 +42,7 @@ export class VoteComponent implements OnInit, OnDestroy {
         this.model = Object.assign(results[0], {
           candidates: results[1]
         });
+        this.onSelectionChange();
       }).catch((err) => {
         this._loadingService.hideLoading();
         this._errorService.showError(err);
@@ -66,6 +68,14 @@ export class VoteComponent implements OnInit, OnDestroy {
       this._loadingService.hideLoading();
       this._errorService.showError(err);
     }
+  }
+
+  public onSelectionChange(_event?: any) {
+    const selected = this.model.candidates.filter((candidate: any) => {
+      return candidate.selected;
+    }).length;
+    this.formInvalid = !(selected >= this.model.specification.minimumSelection &&
+      selected <= this.model.specification.maximumSelection);
   }
 
 }

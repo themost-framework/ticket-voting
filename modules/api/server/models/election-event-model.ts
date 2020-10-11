@@ -3,6 +3,7 @@ import Event = require('./event-model');
 import { ExpressDataContext } from '@themost/express';
 import ElectionAuthClient = require('./election-auth-client-model');
 import RegisterCandidateAction from './register-candidate-action-model';
+import ElectionSpecification = require('./election-specification-model');
 
 /**
  * @class
@@ -11,6 +12,7 @@ import RegisterCandidateAction from './register-candidate-action-model';
 class ElectionEvent extends Event {
 
   public id?: number;
+  public specification?: ElectionSpecification
   /**
    * @constructor
    */
@@ -42,13 +44,14 @@ class ElectionEvent extends Event {
     return await this.context.model(RegisterCandidateAction)
       .where('electionEvent').equal(this.getId())
       .and('actionStatus/alternateName').equal('CompletedActionStatus')
-      .expand('object')
       .select(
         'id',
-        'object',
+        'object/familyName as candidateFamilyName',
+        'object/givenName as candidateGivenName',
         'description'
       )
-      .expand('object')
+      .orderBy('object/familyName')
+      .thenBy('object/givenName')
       .silent()
       .getAllItems();
   }

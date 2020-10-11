@@ -5,15 +5,30 @@
     "title": "VoteAction",
     "abstract": false,
     "sealed": false,
-    "inherits": "ChooseAction",
     "version": "1.0",
     "fields": [
+        {
+            "@id": "https://themost.io/schemas/id",
+            "name": "id",
+            "title": "ID",
+            "description": "The identifier of the item.",
+            "type": "Counter",
+            "primary": true
+        },
+        {
+            "@id": "http://schema.org/envelope",
+            "name": "envelope",
+            "title": "envelope",
+            "type": "Text",
+            "nullable": false
+        },
         {
             "@id": "http://schema.org/candidate",
             "name": "candidate",
             "title": "candidate",
             "description": "A sub property of object. The candidate subject of this action.",
-            "type": "Person"
+            "type": "RegisterCandidateAction",
+            "nullable": false
         }
     ],
     "privileges": [

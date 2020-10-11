@@ -12,16 +12,21 @@
         <div class="mb-3" *ngFor="let item of model.candidates let i = index">
           <div class="form-check">
             <input type="checkbox" class="form-check-input" id="candidate{{i}}" name="candidate{{i}}"
-              [(ngModel)]="item.selected">
+              [(ngModel)]="item.selected" (change)="onSelectionChange($event)">
             <label class="form-check-label" for="candidate{{i}}">
-              <span>{{item.object.familyName}} {{item.object.givenName}}</span>
+              <span>{{item.candidateFamilyName}} {{item.candidateGivenName}}</span>
             </label>
           </div>
         </div>
+        <div class="mb-3" *ngIf="formInvalid">
+          <p class="text-danger" [translate]="'InvalidVoteSelection'" [translateParams]="model.specification"></p>
+        </div>
       </div>
 
+
       <div class="mb-3">
-        <button class="btn btn-primary btn-lg btn-block" type="submit" [translate]="'Apply'"></button>
+        <button [disabled]="formInvalid" class="btn btn-primary btn-lg btn-block" type="submit"
+          [translate]="'Apply'"></button>
       </div>
     </ng-container>
   </form>
@@ -34,7 +39,7 @@
     <div>
       <i class="fa fa-2x bg-success p-4 rounded-circle text-white fa-check"></i>
     </div>
-    <p class="card-text mt-3" [translate]="'SubmitCandidacyCompleted'">
+    <p class="card-text mt-3" [translate]="'SubmitVoteCompleted'">
     </p>
   </div>
 </ng-template>
