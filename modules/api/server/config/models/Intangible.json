@@ -9,13 +9,14 @@
     "inherits": "Thing",
     "version": "1.0",
     "fields": [
-        {
+      {
+            "@id": "https://themost.io/schemas/id",
             "name": "id",
             "title": "ID",
             "description": "The identifier of the item.",
             "type": "Integer",
-            "nullable": false,
-            "primary": true
+            "primary": true,
+            "nullable": false
         }
     ],
     "privileges": [

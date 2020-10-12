@@ -9,6 +9,15 @@
     "inherits": "Thing",
     "version": "1.0",
     "fields": [
+      {
+            "@id": "https://themost.io/schemas/id",
+            "name": "id",
+            "title": "ID",
+            "description": "The identifier of the item.",
+            "type": "Integer",
+            "primary": true,
+            "nullable": false
+        },
         {
             "@id": "http://schema.org/result",
             "name": "result",

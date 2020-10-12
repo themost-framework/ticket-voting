@@ -120,12 +120,12 @@
         "message": "The client must provide a certificate to fulfill the request."
     },
     "E498": {
-        "title": "Token expired",
-        "message": "Token was expired or is in invalid state."
+        "title": "Το κλειδί σύνδεσης έληξε",
+        "message": "Το κλειδί σύνδεσης έχει λήξει ή έχει ήδη χρησιμοποιηθεί."
     },
     "E499": {
-        "title": "Token required",
-        "message": "A token is required to fulfill the request."
+        "title": "Απατείται κλειδί σύνδεσης",
+        "message": "Ένα ενεργό κλειδί σύνδεσης είναι απαραίτητο για αυτήν την διαδικασία."
     },
     "E500": {
         "title": "Εσωτερικό σφάλμα διακομιστή",
@@ -181,5 +181,10 @@
   "VoteSubmitHelp": "Όταν ολοκληρώσετε την επιλογή των υποψηφίων που επιθυμείτε πατήστε το πλήκτρο 'Υποβολή' για να ολοκληρώσετε την διαδικασία.",
   "Voting": "Ψηφοφορία",
   "SubmitVoteCompleted": "Η υποβολή της επιλογής σας ολοκληρώθηκε με επιτυχία. Ευχαριστούμε πολύ για την συμμετοχή σας στην ψηφοφορία.",
-  "InvalidVoteSelection": "Η επιλογή σας δεν είναι έγκυρη. Μπορείτε να επιλέξετε από {{minimumSelection}} έως {{maximumSelection}} υποψηφιότητες."
+  "InvalidVoteSelection": "Η επιλογή σας δεν είναι έγκυρη. Μπορείτε να επιλέξετε από {{minimumSelection}} έως {{maximumSelection}} υποψηφιότητες.",
+  "VotingResults": "Αποτελέσματα ψηφοφορίας",
+  "Voters": "Ψήφισαν",
+  "Candidate": "Υποψήφιος",
+  "Votes": "Ψήφοι",
+  "ResultListHelp": "Στην παρακάτω λίστα εμφανίζονται τα αποτέλεσματα της ψηφοφορίας."
 }

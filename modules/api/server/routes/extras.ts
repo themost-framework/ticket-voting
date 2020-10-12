@@ -3,9 +3,37 @@ import { HttpNotFoundError, HttpBadRequestError, HttpTokenExpiredError, HttpToke
 import RegisterCandidateAction = require('../models/register-candidate-action-model');
 import { EncryptionStrategy } from '@themost/web';
 import VoteAccessToken = require('../models/vote-access-token-model');
+import VoteAction = require('../models/vote-action-model');
+import { groupBy } from 'rxjs/internal/operators/groupBy';
 
 export function extraRouter(): Router {
   const router = Router();
+  router.get("/ElectionEvents/:identifier/Results", async (req, res, next) => {
+    try {
+      const event = await req.context.model('ElectionEvent').where('identifier').equal(req.params.identifier).silent().getItem();
+      if (event == null) {
+        return next(new HttpNotFoundError("The specified event cannot be found"));
+      }
+      const envelopes = await req.context.model(VoteAction).select('count(envelope) as envelopes')
+        .groupBy('envelope')
+        .where('candidate/electionEvent/identifier').equal(req.params.identifier)
+        .silent()
+        .value();
+      const votes = await req.context.model(VoteAction)
+        .select('count(id) as total', 'candidate', 'candidate/object/familyName as candidateFamilyName', 'candidate/object/givenName as candidateGivenName')
+        .groupBy('candidate', 'candidate/object/familyName', 'candidate/object/givenName')
+        .where('candidate/electionEvent/identifier').equal(req.params.identifier)
+        .silent()
+        .getAllItems();
+      return res.json({
+        voters: envelopes,
+        votes: votes
+      });
+    } catch (err) {
+      return next(err);
+    }
+
+  });
   router.post("/ElectionEvents/:identifier/Candidates/Apply", async (req, res, next) => {
     try {
       const event = await req.context.model('ElectionEvent').where('identifier').equal(req.params.identifier).silent().getItem();

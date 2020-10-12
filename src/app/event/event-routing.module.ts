@@ -5,6 +5,7 @@ import { EventHomeComponent } from './event-home/event-home.component';
 import { CandidateListComponent } from './candidate-list/candidate-list.component';
 import { ConfirmCandidateComponent } from './confirm-candidate/confirm-candidate.component';
 import { VoteComponent } from './vote/vote.component';
+import { ResultListComponent } from './result-list/result-list.component';
 
 const routes: Routes = [{
   path: ':id',
@@ -21,6 +22,10 @@ const routes: Routes = [{
     {
       path: 'vote',
       component: VoteComponent
+    },
+    {
+      path: 'results',
+      component: ResultListComponent
     }
   ]
 },

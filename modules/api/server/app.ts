@@ -76,7 +76,7 @@ app.use(express.static(join(process.cwd(), 'public')));
 // extra router
 app.use('/api', extraRouter());
 // vote router
-app.use('/api', passport.authenticate('bearer', { session: false }), voteRouter());
+app.use('/api/ElectionEvents/Current', passport.authenticate('bearer', { session: false }), voteRouter());
 // use @themost/express service router
 app.use('/api', serviceRouter);
 // error handler

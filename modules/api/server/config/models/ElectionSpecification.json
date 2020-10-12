@@ -6,7 +6,7 @@
     "abstract": false,
     "sealed": false,
     "inherits": "StructuredValue",
-    "version": "1.0",
+    "version": "1.1",
     "fields": [
         {
             "@id": "http://schema.org/minimumSelection",
@@ -25,14 +25,14 @@
             "name": "validFrom",
             "title": "validFrom",
             "description": "The date when the item becomes valid.",
-            "type": "Date"
+            "type": "DateTime"
         },
         {
             "@id": "http://schema.org/validThrough",
             "name": "validThrough",
             "title": "validThrough",
             "description": "The date after when the item is not valid. For example the end of an offer, salary period, or a period of opening hours.",
-            "type": "Date"
+            "type": "DateTime"
         }
     ],
     "privileges": [

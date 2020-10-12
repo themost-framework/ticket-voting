@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ErrorService } from 'src/app/shared/error.service';
 import { AngularDataContext } from '@themost/angular';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { LoadingService } from 'src/app/shared/loading.service';
 import { Subscription } from 'rxjs';
 
@@ -20,7 +20,8 @@ export class VoteComponent implements OnInit, OnDestroy {
   constructor(private _errorService: ErrorService,
     private _context: AngularDataContext,
     private _activatedRoute: ActivatedRoute,
-    private _loadingService: LoadingService) { }
+    private _loadingService: LoadingService,
+    private _router: Router) { }
 
   public model: any;
   public completed = false;
@@ -46,10 +47,12 @@ export class VoteComponent implements OnInit, OnDestroy {
       }).catch((err) => {
         this._loadingService.hideLoading();
         this._errorService.showError(err);
+        this._router.navigateByUrl('/');
       });
     }, (err) => {
       this._loadingService.hideLoading();
       this._errorService.showError(err);
+      this._router.navigateByUrl('/');
     });
 
   }

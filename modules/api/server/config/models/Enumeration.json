@@ -8,7 +8,16 @@
     "sealed": false,
     "inherits": "Intangible",
     "version": "1.0",
-    "fields": [],
+    "fields": [
+      {
+            "@id": "https://themost.io/schemas/id",
+            "name": "id",
+            "title": "ID",
+            "description": "The identifier of the item.",
+            "type": "Counter",
+            "primary": true
+        }
+    ],
     "privileges": [
         {
             "mask": 15,

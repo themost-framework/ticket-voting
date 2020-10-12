@@ -8,7 +8,7 @@ import ElectionEvent = require('../models/election-event-model');
 export function voteRouter(): Router {
   const router = Router();
 
-  router.get('/ElectionEvents/Current/Candidates', async (req, res, next) => {
+  router.get('/Candidates', async (req, res, next) => {
     const electionEvent = await ElectionEvent.getCurrent(req.context);
     if (electionEvent == null) {
       return res.json([]);
@@ -16,7 +16,7 @@ export function voteRouter(): Router {
     const result = await electionEvent.getCandidates();
     return res.json(result);
   });
-  router.post('/ElectionEvents/Current/Vote', async (req, res, next) => {
+  router.post('/Vote', async (req, res, next) => {
     try {
       const electionEvent = await ElectionEvent.getCurrent(req.context);
       if (electionEvent == null) {
@@ -95,7 +95,7 @@ export function voteRouter(): Router {
 
 
   });
-  router.get('/ElectionEvents/Current', async (req, res, next) => {
+  router.get('/', async (req, res, next) => {
     const result = await ElectionEvent.getCurrent(req.context);
     if (result == null) {
       return res.status(204).send();
