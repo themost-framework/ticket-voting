@@ -48,7 +48,7 @@ class ElectionEvent extends Event {
         'id',
         'object/familyName as candidateFamilyName',
         'object/givenName as candidateGivenName',
-        'description'
+        'shortDescription'
       )
       .orderBy('object/familyName')
       .thenBy('object/givenName')

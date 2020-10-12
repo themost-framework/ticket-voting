@@ -18,7 +18,7 @@ describe('SendTokenService', () => {
       return done();
     });
   });
-  it("should send tokens", async () => {
+  fit("should send tokens", async () => {
     const service: SendTokenService = context.getApplication().getService(<any>SendTokenService);
     const election = await context.model(ElectionEvent)
       .where('identifier').equal('wVdXSWHSmTS')
@@ -29,7 +29,7 @@ describe('SendTokenService', () => {
     }
   });
 
-  fit("should send election message", async () => {
+  it("should send election message", async () => {
     const service: SendElectionMessageService = context.getApplication().getService(<any>SendElectionMessageService);
     const election = await context.model(ElectionEvent)
       .where('identifier').equal('wVdXSWHSmTS')
