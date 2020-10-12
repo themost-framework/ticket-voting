@@ -48,7 +48,8 @@ class SendTokenService extends ApplicationService {
     const subject = <string>(election.name);
     const access_token = (<any>newToken).access_token;
     const state = encodeURIComponent('/events/current/vote');
-    const tokenURL = new URL(`/client/callback/index.html?access_token=${access_token}&state=${state}`, origin)
+    const tokenURL = new URL(`/client/callback/index.html?access_token=${access_token}&state=${state}`, origin);
+    const overviewURL = new URL(`/#/events/${election.identifier}/overview`, origin);
     await new Promise((resolve, reject) => {
       mailer.template('send-token')
         .subject(subject)
@@ -56,7 +57,8 @@ class SendTokenService extends ApplicationService {
         .send({
           model: {
             electionEvent: election,
-            url: tokenURL
+            url: tokenURL,
+            overviewUrl: overviewURL
           }
         }, (err) => {
           if (err) {

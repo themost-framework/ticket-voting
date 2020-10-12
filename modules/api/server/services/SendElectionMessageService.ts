@@ -21,6 +21,7 @@ class SendElectionMessageService extends ApplicationService {
     // send message
     const subject = <string>(election.name);
     const applyURL = new URL(`/#/events/${election.identifier}/candidates/apply`, origin);
+    const overviewURL = new URL(`/#/events/${election.identifier}/overview`, origin);
     const result = {
       sent: <Array<string>>[],
       failed: <Array<string>>[]
@@ -35,7 +36,8 @@ class SendElectionMessageService extends ApplicationService {
             .send({
               model: {
                 electionEvent: election,
-                url: applyURL
+                url: applyURL,
+                overviewUrl: overviewURL
               }
             }, (err) => {
               if (err) {
