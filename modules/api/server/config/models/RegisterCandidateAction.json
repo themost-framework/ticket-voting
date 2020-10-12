@@ -7,7 +7,7 @@
     "abstract": false,
     "sealed": false,
     "inherits": "RegisterAction",
-    "version": "1.2",
+    "version": "1.3",
     "fields": [
         {
             "@id": "https://themost.io/schemas/id",
@@ -47,6 +47,12 @@
             "name": "shareEmail",
             "title": "shareEmail",
             "type": "Boolean"
+        },{
+            "@id": "http://schema.org/shortDescription",
+            "name": "shortDescription",
+            "title": "shortDescription",
+            "type": "Text",
+            "size": 1024
         }
     ],
     "eventListeners": [
