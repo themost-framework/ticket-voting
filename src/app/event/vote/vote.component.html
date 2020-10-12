@@ -16,6 +16,9 @@
             <label class="form-check-label" for="candidate{{i}}">
               <span>{{item.candidateFamilyName}} {{item.candidateGivenName}}</span>
             </label>
+            <div *ngIf="item.description">
+              <small><i>"{{item.description}}"</i></small>
+            </div>
           </div>
         </div>
         <div class="mb-3" *ngIf="formInvalid">

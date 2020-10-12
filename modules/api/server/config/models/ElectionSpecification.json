@@ -6,7 +6,7 @@
     "abstract": false,
     "sealed": false,
     "inherits": "StructuredValue",
-    "version": "1.1",
+    "version": "1.2",
     "fields": [
         {
             "@id": "http://schema.org/minimumSelection",
@@ -32,6 +32,20 @@
             "name": "validThrough",
             "title": "validThrough",
             "description": "The date after when the item is not valid. For example the end of an offer, salary period, or a period of opening hours.",
+            "type": "DateTime"
+        },
+        {
+            "@id": "http://schema.org/candidacyFrom",
+            "name": "candidacyFrom",
+            "title": "candidacyFrom",
+            "description": "The date when candidates will be able to apply for.",
+            "type": "DateTime"
+        },
+        {
+            "@id": "http://schema.org/candidacyThrough",
+            "name": "candidacyThrough",
+            "title": "candidacyThrough",
+            "description": "The date after when candidates will not be able to apply for.",
             "type": "DateTime"
         }
     ],

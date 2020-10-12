@@ -18,18 +18,18 @@ describe('SendTokenService', () => {
       return done();
     });
   });
-  it("should send tokens", async () => {
+  fit("should send tokens", async () => {
     const service: SendTokenService = context.getApplication().getService(<any>SendTokenService);
     const election = await context.model(ElectionEvent)
       .where('identifier').equal('wVdXSWHSmTS')
       .silent()
       .getItem();
-    for (let index = 0; index < 10; index++) {
+    for (let index = 0; index < 20; index++) {
       await service.send(context, election, `voter${index}@example.com`);
     }
   });
 
-  fit("should send election message", async () => {
+  it("should send election message", async () => {
     const service: SendElectionMessageService = context.getApplication().getService(<any>SendElectionMessageService);
     const election = await context.model(ElectionEvent)
       .where('identifier').equal('wVdXSWHSmTS')

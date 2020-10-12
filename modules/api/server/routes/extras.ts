@@ -14,11 +14,11 @@ export function extraRouter(): Router {
       if (event == null) {
         return next(new HttpNotFoundError("The specified event cannot be found"));
       }
-      const envelopes = await req.context.model(VoteAction).select('count(envelope) as envelopes')
+      const envelopes = await req.context.model(VoteAction).select('envelope')
         .groupBy('envelope')
         .where('candidate/electionEvent/identifier').equal(req.params.identifier)
         .silent()
-        .value();
+        .count();
       const votes = await req.context.model(VoteAction)
         .select('count(id) as total', 'candidate', 'candidate/object/familyName as candidateFamilyName', 'candidate/object/givenName as candidateGivenName')
         .groupBy('candidate', 'candidate/object/familyName', 'candidate/object/givenName')

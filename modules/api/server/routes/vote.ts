@@ -9,12 +9,18 @@ export function voteRouter(): Router {
   const router = Router();
 
   router.get('/Candidates', async (req, res, next) => {
-    const electionEvent = await ElectionEvent.getCurrent(req.context);
-    if (electionEvent == null) {
-      return res.json([]);
+    try {
+      const electionEvent = await ElectionEvent.getCurrent(req.context);
+      if (electionEvent == null) {
+        return res.json([]);
+      }
+      const result = await electionEvent.getCandidates();
+      return res.json(result);
+    } catch (err) {
+      return next(err);
     }
-    const result = await electionEvent.getCandidates();
-    return res.json(result);
+
+
   });
   router.post('/Vote', async (req, res, next) => {
     try {

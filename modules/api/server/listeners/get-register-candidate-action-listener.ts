@@ -53,6 +53,7 @@ async function afterSaveAsync(event: DataEventArgs) {
   return await new Promise((resolve, reject) => {
     getMailer(context)
       .template('confirm-register-candidate')
+      .subject(data.electionEvent.name)
       .to(data.object.address.email)
       .send({
         model: data

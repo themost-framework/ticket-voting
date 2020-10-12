@@ -47,7 +47,7 @@
     "@themost/data": "^2.5.21",
     "@themost/express": "^1.5.13",
     "@themost/mailer": "^2.1.5",
-    "@themost/mssql": "^2.5.3-next.3",
+    "@themost/mssql": "^2.5.3-next.4",
     "@themost/node": "^2.5.0",
     "@themost/query": "^2.5.0",
     "@themost/sqlite": "^2.2.3",

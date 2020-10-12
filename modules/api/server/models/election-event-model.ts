@@ -2,7 +2,7 @@ import { EdmMapping, EdmType } from '@themost/data/odata';
 import Event = require('./event-model');
 import { ExpressDataContext } from '@themost/express';
 import ElectionAuthClient = require('./election-auth-client-model');
-import RegisterCandidateAction from './register-candidate-action-model';
+import RegisterCandidateAction = require('./register-candidate-action-model');
 import ElectionSpecification = require('./election-specification-model');
 
 /**
