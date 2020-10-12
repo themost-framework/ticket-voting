@@ -70,7 +70,7 @@ export class ResultListComponent implements OnInit, OnDestroy {
     if (this.liveUpdate) {
       this.liveInterval = setInterval(() => {
         this.refresh();
-      }, 1000);
+      }, 300000);
     }
   }
 
