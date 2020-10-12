@@ -6,11 +6,17 @@ import { CandidateListComponent } from './candidate-list/candidate-list.componen
 import { ConfirmCandidateComponent } from './confirm-candidate/confirm-candidate.component';
 import { VoteComponent } from './vote/vote.component';
 import { ResultListComponent } from './result-list/result-list.component';
+import { OverviewComponent } from './overview/overview.component';
 
 const routes: Routes = [{
   path: ':id',
   component: EventHomeComponent,
   children: [
+    {
+      path: '',
+      pathMatch: 'full',
+      redirectTo: 'overview'
+    },
     {
       path: 'candidates',
       component: CandidateListComponent
@@ -26,6 +32,10 @@ const routes: Routes = [{
     {
       path: 'results',
       component: ResultListComponent
+    },
+    {
+      path: 'overview',
+      component: OverviewComponent
     }
   ]
 },

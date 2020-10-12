@@ -12,9 +12,10 @@ import { SharedModule } from '../shared/shared.module';
 import { ConfirmCandidateComponent } from './confirm-candidate/confirm-candidate.component';
 import { VoteComponent } from './vote/vote.component';
 import { ResultListComponent } from './result-list/result-list.component';
+import { OverviewComponent } from './overview/overview.component';
 
 @NgModule({
-  declarations: [CandidateComponent, AddCandidateComponent, CandidateListComponent, EventHomeComponent, ConfirmCandidateComponent, VoteComponent, ResultListComponent],
+  declarations: [CandidateComponent, AddCandidateComponent, CandidateListComponent, EventHomeComponent, ConfirmCandidateComponent, VoteComponent, ResultListComponent, OverviewComponent],
   imports: [
     CommonModule,
     FormsModule,
