@@ -1,4 +1,10 @@
 {
+  "services": [
+    {
+      "serviceType": "@themost/web#EncryptionStrategy",
+      "strategyType": "@themost/web#DefaultEncryptionStrategy"
+    }
+  ],
     "settings": {
         "app": {
           "origin": "https://ticket-voting.preview.themost.io"
@@ -32,6 +38,11 @@
             "name": "SQLite Data Adapter",
             "invariantName": "sqlite",
             "type": "@themost/sqlite"
+        },
+        {
+            "name": "MSSQL Data Adapter",
+            "invariantName": "mssql",
+            "type": "@themost/mssql"
         }
     ],
     "adapters": [
