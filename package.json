@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
+    "production": "node bin/www.js",
     "start": "ng serve --proxy-config ./proxy.conf.json",
     "build": "ng build",
     "test": "ng test",
@@ -27,6 +28,7 @@
     "@themost/angular": "^6.5.2",
     "@themost/client": "^2.5.3",
     "bootstrap": "^4.5.2",
+    "express": "^4.16.4",
     "jquery": "^3.5.1",
     "ngx-bootstrap": "^6.1.0",
     "popper.js": "^1.16.1",

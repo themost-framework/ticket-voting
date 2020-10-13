@@ -54,3 +54,21 @@
 <ng-container *ngIf="completed">
   <ng-container *ngTemplateOutlet="submitted"></ng-container>
 </ng-container>
+
+<ng-template #confirmTemplate>
+  <div class="modal-body text-center">
+    <div class="m-5 text-center">
+      <div>
+        <i style="width: 80px" class="fa fa-2x bg-primary p-4 rounded-circle text-white mb-4 fa-question"></i>
+      </div>
+      <h4 [translate]="'VoteConfirmMessage.Title'"></h4>
+      <p [translate]="'VoteConfirmMessage.Message'"></p>
+    </div>
+    <div class="text-center mb-4">
+      <button type="button" class="btn btn-primary px-4" (click)="confirm()" [translate]="'Yes'"></button>
+      <button type="button" class="btn ml-2 btn-secondary px-4" (click)="decline()" [translate]="'No'"></button>
+    </div>
+
+
+  </div>
+</ng-template>

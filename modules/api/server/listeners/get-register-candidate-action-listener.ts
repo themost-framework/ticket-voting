@@ -1,7 +1,7 @@
 import { DataEventArgs, DataObjectState } from "@themost/data";
 import { getMailer } from '@themost/mailer';
 import RegisterCandidateAction = require("../models/register-candidate-action-model");
-import { HttpNotFoundError } from "@themost/common";
+import { HttpNotFoundError, DataError, DataNotFoundError } from "@themost/common";
 import { ExpressDataContext } from "@themost/express";
 import { EncryptionStrategy } from '@themost/web';
 async function beforeSaveAsync(event: DataEventArgs) {
@@ -13,7 +13,20 @@ async function beforeSaveAsync(event: DataEventArgs) {
   if (object != null) {
     // try to save person
     const context = event.model.context;
-    const person = await context.model('Person').where('address/email').equal(object.email).silent().getItem();
+    if (event.target.electionEvent == null) {
+      throw new DataError('E_ELECTION_REQUIRED', 'Election cannot be empty at this context', '', 'RegisterCandidateAction', 'electionEvent');
+    }
+    const electionEvent = context.model('ElectionEvent').convert(event.target.electionEvent);
+    // validate RegiserCandidateAction
+    const exists = await context.model('RegisterCandidateAction')
+      .where('object/address/email').equal(object.email)
+      .and('electionEvent').equal(electionEvent.getId())
+      .silent()
+      .count();
+    if (exists) {
+      throw new DataError('E_CANDIDATE_EXISTS', 'Candidacy already exists', '', 'RegisterCandidateAction', 'object');
+    }
+    const person = await context.model('Person').where('address/email').equal(object.address.email).silent().getItem();
     if (person == null) {
       // and save
       await context.model('Person').silent().save(object);

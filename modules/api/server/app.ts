@@ -64,14 +64,14 @@ app.use(dataApplication.middleware(app));
 app.use(authRouter(passport));
 // use sass middleware
 app.use(sassMiddleware({
-  src: join(process.cwd(), 'public'),
-  dest: join(process.cwd(), 'public'),
+  src: resolve(__dirname, '../public'),
+  dest: resolve(__dirname, '../public'),
   indentedSyntax: false, // true = .sass and false = .scss
   sourceMap: true
 }));
 
 // use static content
-app.use(express.static(join(process.cwd(), 'public')));
+app.use(express.static(resolve(__dirname, '../public')));
 
 // extra router
 app.use('/api', extraRouter());

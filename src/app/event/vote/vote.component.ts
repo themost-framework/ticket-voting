@@ -1,9 +1,11 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewChildren, TemplateRef, ViewChild } from '@angular/core';
 import { ErrorService } from 'src/app/shared/error.service';
 import { AngularDataContext } from '@themost/angular';
 import { ActivatedRoute, Router } from '@angular/router';
 import { LoadingService } from 'src/app/shared/loading.service';
 import { Subscription } from 'rxjs';
+import { BsModalService } from 'ngx-bootstrap/modal';
+import { NgTemplateOutlet } from '@angular/common';
 
 @Component({
   selector: 'app-vote',
@@ -11,6 +13,7 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./vote.component.scss']
 })
 export class VoteComponent implements OnInit, OnDestroy {
+  modalRef: any;
   ngOnDestroy(): void {
     if (this.querySubscription) {
       this.querySubscription.unsubscribe();
@@ -21,14 +24,21 @@ export class VoteComponent implements OnInit, OnDestroy {
     private _context: AngularDataContext,
     private _activatedRoute: ActivatedRoute,
     private _loadingService: LoadingService,
-    private _router: Router) { }
+    private _router: Router,
+    private modalService: BsModalService) { }
 
   public model: any;
   public completed = false;
   public formInvalid = true;
   private querySubscription: Subscription;
+  @ViewChild('confirmTemplate') confirmTemplate: NgTemplateOutlet;
 
   ngOnInit(): void {
+    // get token (if any)
+    const access_token = sessionStorage.getItem('access_token');
+    if (access_token) {
+      this._context.setBearerAuthorization(access_token);
+    }
     this._loadingService.showLoading();
     this.querySubscription = this._activatedRoute.queryParams.subscribe((queryParams) => {
       const access_token = queryParams.access_token;
@@ -58,6 +68,10 @@ export class VoteComponent implements OnInit, OnDestroy {
   }
 
   async submit() {
+    this.modalRef = this.modalService.show(this.confirmTemplate);
+  }
+
+  private async doSubmit() {
     try {
       this._loadingService.showLoading();
       // get selected candidates
@@ -79,6 +93,15 @@ export class VoteComponent implements OnInit, OnDestroy {
     }).length;
     this.formInvalid = !(selected >= this.model.specification.minimumSelection &&
       selected <= this.model.specification.maximumSelection);
+  }
+
+  confirm() {
+    this.modalRef.hide();
+    this.doSubmit();
+  }
+
+  decline() {
+    this.modalRef.hide();
   }
 
 }
