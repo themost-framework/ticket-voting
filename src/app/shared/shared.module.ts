@@ -7,9 +7,10 @@ import { ErrorService } from './error.service';
 import { HttpClientModule } from '@angular/common/http';
 import { SpinnerComponent } from './spinner/spinner.component';
 import { LoadingService } from './loading.service';
+import { DropzoneDirective } from './dropzone/dropzone.directive';
 
 @NgModule({
-  declarations: [ErrorModalComponent, SpinnerComponent],
+  declarations: [ErrorModalComponent, SpinnerComponent, DropzoneDirective],
   entryComponents: [
     ErrorModalComponent
   ],
@@ -20,6 +21,9 @@ import { LoadingService } from './loading.service';
     TranslateModule.forChild({
       isolate: false
     })
+  ],
+  exports: [
+    DropzoneDirective
   ],
   providers: [
     ErrorService,

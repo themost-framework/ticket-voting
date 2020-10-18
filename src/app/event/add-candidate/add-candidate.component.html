@@ -54,6 +54,15 @@
         </div>
       </div>
     </div>
+    <div class="row d-none">
+      <div class="col-md-6 mb-3">
+        <label for="image">
+          <span [translate]="'Photo'"></span>&nbsp;<span [translate]="'OptionalHelp'"></span>
+        </label>
+        <input maxlength="80" type="file" class="form-control dropzone" appDropzone id="image" name="image"
+          [(ngModel)]="model.object.image" #photo="ngModel" placeholder="" value="" [required]="false">
+      </div>
+    </div>
     <div class="row">
       <div class="col-md-6 mb-3">
         <label for="jobTitle">
@@ -106,8 +115,8 @@
     <div class="mb-3">
       <p [translate]="'FormSubmitHelp'"></p>
     </div>
-    <button [disabled]="form.invalid" class="btn btn-primary btn-lg btn-block" type="submit"
-      [translate]="'Apply'"></button>
+    <button [lang]="_translateService.currentLang" [disabled]="form.invalid" class="btn btn-primary btn-lg btn-block"
+      type="submit" [translate]="'Apply'"></button>
   </form>
 </ng-template>
 

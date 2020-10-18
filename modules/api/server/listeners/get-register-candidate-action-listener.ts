@@ -19,12 +19,15 @@ async function beforeSaveAsync(event: DataEventArgs) {
     const electionEvent = context.model('ElectionEvent').convert(event.target.electionEvent);
     // validate RegiserCandidateAction
     const exists = await context.model('RegisterCandidateAction')
-      .where('object/address/email').equal(object.email)
+      .where('object/address/email').equal(object.address.email)
       .and('electionEvent').equal(electionEvent.getId())
+      .and('actionStatus/alternateName').notEqual('CancelledActionStatus')
       .silent()
       .count();
     if (exists) {
-      throw new DataError('E_CANDIDATE_EXISTS', 'Candidacy already exists', '', 'RegisterCandidateAction', 'object');
+      throw Object.assign(new DataError('E_CANDIDATE_EXISTS', 'Candidacy already exists', '', 'RegisterCandidateAction', 'object'), {
+        status: 409.1
+      });
     }
     const person = await context.model('Person').where('address/email').equal(object.address.email).silent().getItem();
     if (person == null) {

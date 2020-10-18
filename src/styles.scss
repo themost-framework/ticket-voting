@@ -1,5 +1,20 @@
 /* You can add global styles to this file, and also import other style files */
+@import "./node_modules/bootstrap/scss/functions";
+@import "./node_modules/argon-design-system-free/assets/scss/argon-design-system/variables";
 @import "./node_modules/bootstrap/scss/bootstrap";
+@import "./node_modules/argon-design-system-free/assets/scss/argon-design-system/theme";
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body {
+  margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;
+
+  }
+
+.home-jumbotron {
+  height: 560px;
+  background: url(assets/img/tick_n_vote_bg.svg) no-repeat right top;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
 

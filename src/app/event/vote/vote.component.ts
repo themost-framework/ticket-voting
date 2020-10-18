@@ -6,6 +6,7 @@ import { LoadingService } from 'src/app/shared/loading.service';
 import { Subscription } from 'rxjs';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { NgTemplateOutlet } from '@angular/common';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-vote',
@@ -25,7 +26,8 @@ export class VoteComponent implements OnInit, OnDestroy {
     private _activatedRoute: ActivatedRoute,
     private _loadingService: LoadingService,
     private _router: Router,
-    private modalService: BsModalService) { }
+    private modalService: BsModalService,
+    public _translateService: TranslateService) { }
 
   public model: any;
   public completed = false;

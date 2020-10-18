@@ -28,8 +28,8 @@
 
 
       <div class="mb-3">
-        <button [disabled]="formInvalid" class="btn btn-primary btn-lg btn-block" type="submit"
-          [translate]="'Apply'"></button>
+        <button [lang]="_translateService.currentLang" [disabled]="formInvalid" class="btn btn-primary btn-lg btn-block"
+          type="submit" [translate]="'Apply'"></button>
       </div>
     </ng-container>
   </form>
@@ -65,8 +65,10 @@
       <p [translate]="'VoteConfirmMessage.Message'"></p>
     </div>
     <div class="text-center mb-4">
-      <button type="button" class="btn btn-primary px-4" (click)="confirm()" [translate]="'Yes'"></button>
-      <button type="button" class="btn ml-2 btn-secondary px-4" (click)="decline()" [translate]="'No'"></button>
+      <button [lang]="_translateService.currentLang" type="button" class="btn btn-primary px-4" (click)="confirm()"
+        [translate]="'Yes'"></button>
+      <button [lang]="_translateService.currentLang" type="button" class="btn ml-2 btn-secondary px-4"
+        (click)="decline()" [translate]="'No'"></button>
     </div>
 
 

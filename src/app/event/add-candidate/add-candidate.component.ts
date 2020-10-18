@@ -36,6 +36,7 @@ export class AddCandidateComponent implements OnInit {
       givenName: null,
       familyName: null,
       jobTitle: null,
+      image: null,
       address: {
         email: null
       }
@@ -46,7 +47,7 @@ export class AddCandidateComponent implements OnInit {
     private _context: AngularDataContext,
     private _activatedRoute: ActivatedRoute,
     private _loadingService: LoadingService,
-    private _translateService: TranslateService) { }
+    public _translateService: TranslateService) { }
 
   ngOnInit(): void {
     this._loadingService.showLoading();

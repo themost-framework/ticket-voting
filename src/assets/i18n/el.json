@@ -76,8 +76,8 @@
       }
     },
     "E409": {
-        "title": "Conflict",
-        "message": "The request could not be completed due to a conflict with the current state of the resource."
+        "title": "Ασυνέπεια δεδομένων",
+        "message": "Το αίτημα σας δεν μπορεί να ολοκληρωθεί λόγω μίας ασυνέπειας η οποία σχετίζεται με την κατάσταση του αντικειμένου."
     },
     "E410": {
         "title": "Gone",
