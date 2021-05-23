@@ -15,6 +15,10 @@ import { MostModule } from '@themost/angular';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { SharedModule } from './shared/shared.module';
 import { AuthModule } from './auth/auth.module';
+import { TermsComponent } from './terms/terms.component';
+
+import { MarkdownModule } from 'ngx-markdown';
+
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
 }
@@ -23,12 +27,14 @@ export function HttpLoaderFactory(http: HttpClient) {
   declarations: [
     AppComponent,
     LayoutComponent,
-    HomeComponent
+    HomeComponent,
+    TermsComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
+    MarkdownModule.forRoot({ loader: HttpClient }),
     BrowserAnimationsModule,
     TranslateModule.forRoot({
       loader: {
