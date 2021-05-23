@@ -108,7 +108,8 @@
         <input type="checkbox" [required]="true" class="form-check-input" id="agreeTerms" name="agreeTerms"
           [(ngModel)]="model.agreeTerms" #agreeTerms="ngModel">
         <label class="form-check-label" for="agreeTerms">
-          <span [translate]="'AgreeTerms'"></span> &nbsp;<span [translate]="'RequiredHelp'"></span>
+          <span [translate]="'AgreeTerms'"></span>&nbsp;<a target="_blank" [routerLink]="['/terms']"
+            [translate]="'ReadTerms'"></a>&nbsp;<span [translate]="'RequiredHelp'"></span>
         </label>
       </div>
     </div>

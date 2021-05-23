@@ -1,0 +1,64 @@
+[{
+  "name": "Διοικητικό Συμβούλιο - 100ο Δημοτικό Σχολείο",
+  "superEvent": {
+  "identifier": "17hUFs2nngz"
+  },
+  "startDate": "2021-05-23 09:00:00.000+03:00",
+  "endDate": "2021-05-23 23:00:00.000+03:00",
+  "specification": {
+    "minimumSelection": 1,
+    "maximumSelection": 5,
+    "validFrom": "2021-05-23 09:00:00.000+03:00",
+    "validThrough": "2021-05-23 23:00:00.000+03:00",
+    "candidacyFrom": "2021-05-15 09:00:00.000+03:00",
+    "candidacyThrough": "2021-05-23 23:00:00.000+03:00"
+  }
+},
+{
+  "name": "Εξελεγκτική Επιτροπή - 100ο Δημοτικό Σχολείο",
+  "superEvent": {
+  "identifier": "17hUFs2nngz"
+  },
+  "startDate": "2021-05-23 09:00:00.000+03:00",
+  "endDate": "2021-05-23 23:00:00.000+03:00",
+  "specification": {
+    "minimumSelection": 1,
+    "maximumSelection": 5,
+    "validFrom": "2021-05-23 09:00:00.000+03:00",
+    "validThrough": "2021-05-23 23:00:00.000+03:00",
+    "candidacyFrom": "2021-05-15 09:00:00.000+03:00",
+    "candidacyThrough": "2021-05-23 23:00:00.000+03:00"
+  }
+},
+{
+  "name": "Σχολική Επιτροπή - 100ο Δημοτικό Σχολείο",
+  "superEvent": {
+  "identifier": "17hUFs2nngz"
+  },
+  "startDate": "2021-05-23 09:00:00.000+03:00",
+  "endDate": "2021-05-23 23:00:00.000+03:00",
+  "specification": {
+    "minimumSelection": 1,
+    "maximumSelection": 5,
+    "validFrom": "2021-05-23 09:00:00.000+03:00",
+    "validThrough": "2021-05-23 23:00:00.000+03:00",
+    "candidacyFrom": "2021-05-15 09:00:00.000+03:00",
+    "candidacyThrough": "2021-05-23 23:00:00.000+03:00"
+  }
+},
+{
+  "name": "Ένωση Γονέων - 100ο Δημοτικό Σχολείο",
+  "superEvent": {
+  "identifier": "17hUFs2nngz"
+  },
+  "startDate": "2021-05-23 09:00:00.000+03:00",
+  "endDate": "2021-05-23 23:00:00.000+03:00",
+  "specification": {
+    "minimumSelection": 1,
+    "maximumSelection": 5,
+    "validFrom": "2021-05-23 09:00:00.000+03:00",
+    "validThrough": "2021-05-23 23:00:00.000+03:00",
+    "candidacyFrom": "2021-05-15 09:00:00.000+03:00",
+    "candidacyThrough": "2021-05-23 23:00:00.000+03:00"
+  }
+}]

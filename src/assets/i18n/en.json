@@ -158,5 +158,6 @@
   "CandidacyForm": "Candidacy Application Form",
   "Apply": "Apply",
   "EmailHelp": "Set your email address. This address will be used to send you notifications about your candidacy.",
-  "EmailInvalid": "Please enter a valid email address."
+  "EmailInvalid": "Please enter a valid email address.",
+  "ReadTerms": "Read terms and conditions"
 }
