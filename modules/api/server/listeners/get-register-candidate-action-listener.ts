@@ -4,6 +4,7 @@ import RegisterCandidateAction = require("../models/register-candidate-action-mo
 import { HttpNotFoundError, DataError, DataNotFoundError } from "@themost/common";
 import { ExpressDataContext } from "@themost/express";
 import { EncryptionStrategy } from '@themost/web';
+import { merge } from 'lodash';
 async function beforeSaveAsync(event: DataEventArgs) {
   if (event.state !== DataObjectState.Insert) {
     return;
@@ -33,6 +34,9 @@ async function beforeSaveAsync(event: DataEventArgs) {
     if (person == null) {
       // and save
       await context.model('Person').silent().save(object);
+    } else {
+      const mergePerson = merge(person, event.target.object);
+      event.target.object = mergePerson;
     }
   }
 }
