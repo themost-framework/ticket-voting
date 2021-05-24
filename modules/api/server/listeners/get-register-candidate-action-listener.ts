@@ -35,8 +35,7 @@ async function beforeSaveAsync(event: DataEventArgs) {
       // and save
       await context.model('Person').silent().save(object);
     } else {
-      const mergePerson = merge(person, event.target.object);
-      event.target.object = mergePerson;
+      event.target.object = person;
     }
   }
 }
