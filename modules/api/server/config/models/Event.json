@@ -251,6 +251,19 @@
             "nullable": false,
             "readonly": true,
             "value": "javascript:return this.chars(11);"
+        },
+        {
+            "@id": "http://schema.org/subEvents",
+            "name": "subEvents",
+            "title": "subEvents",
+            "type": "Event",
+            "mapping": {
+              "parentModel": "Event",
+              "parentField": "id",
+              "childModel": "Event",
+              "childField": "superEvent",
+              "associationType": "association"
+            }
         }
     ],
     "constraints": [

@@ -1,0 +1,81 @@
+<ng-template #vote>
+  <form #form="ngForm" (submit)="submit()" novalidate>
+    <ng-container *ngIf="model">
+      <div class="mt-3 text-center">
+        <h3 [translate]="'Voting'"></h3>
+      </div>
+      <div class="my-3">
+        <p [translate]="'CandidateListHelp'" [translateParams]="model.specification"></p>
+        <p [translate]="'VoteSubmitHelp'"></p>
+      </div>
+      <div class="pl-3">
+        <ng-container *ngFor="let subEvent of model.subEvents">
+          <h4>{{subEvent.name}}</h4>
+          <p class="text-primary font-weight-bold" [translate]="'VoteSelectionHelp'"
+            [translateParams]="subEvent.specification"></p>
+          <div class="mb-3" *ngFor="let item of model.candidates let i = index">
+            <div class="form-check" *ngIf="item.electionEvent === subEvent.id">
+              <input type="checkbox" class="form-check-input" id="candidate{{i}}" name="candidate{{i}}"
+                [(ngModel)]="item.selected" (change)="onSelectionChange($event)">
+              <label class="form-check-label" for="candidate{{i}}">
+                <span>{{item.candidateFamilyName}} {{item.candidateGivenName}}</span>
+              </label>
+              <div *ngIf="item.shortDescription">
+                <small><i>"{{item.shortDescription}}"</i></small>
+              </div>
+            </div>
+          </div>
+        </ng-container>
+        <div class="mb-3" *ngIf="formInvalid">
+          <p class="text-danger" [translate]="'InvalidMultipleVoteSelection'"></p>
+        </div>
+      </div>
+
+
+      <div class="mb-3">
+        <button [lang]="_translateService.currentLang" [disabled]="formInvalid" class="btn btn-primary btn-lg btn-block"
+          type="submit" [translate]="'Apply'"></button>
+      </div>
+    </ng-container>
+  </form>
+</ng-template>
+
+
+
+<ng-template #submitted>
+  <div class="text-center mt-5">
+    <div>
+      <i class="fa fa-2x bg-success p-4 rounded-circle text-white fa-check"></i>
+    </div>
+    <p class="card-text mt-3" [translate]="'SubmitVoteCompleted'">
+    </p>
+  </div>
+</ng-template>
+
+<ng-container *ngIf="!completed">
+  <ng-container *ngTemplateOutlet="vote"></ng-container>
+</ng-container>
+
+<ng-container *ngIf="completed">
+  <ng-container *ngTemplateOutlet="submitted"></ng-container>
+</ng-container>
+
+<ng-template #confirmTemplate>
+  <div class="modal-body text-center">
+    <div class="m-5 text-center">
+      <div>
+        <i style="width: 80px" class="fa fa-2x bg-primary p-4 rounded-circle text-white mb-4 fa-question"></i>
+      </div>
+      <h4 [translate]="'VoteConfirmMessage.Title'"></h4>
+      <p [translate]="'VoteConfirmMessage.Message'"></p>
+    </div>
+    <div class="text-center mb-4">
+      <button [lang]="_translateService.currentLang" type="button" class="btn btn-primary px-4" (click)="confirm()"
+        [translate]="'Yes'"></button>
+      <button [lang]="_translateService.currentLang" type="button" class="btn ml-2 btn-secondary px-4"
+        (click)="decline()" [translate]="'No'"></button>
+    </div>
+
+
+  </div>
+</ng-template>

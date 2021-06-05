@@ -19,8 +19,18 @@ export function voteRouter(): Router {
     } catch (err) {
       return next(err);
     }
-
-
+  });
+  router.get('/SubCandidates', async (req, res, next) => {
+    try {
+      const electionEvent = await ElectionEvent.getCurrent(req.context);
+      if (electionEvent == null) {
+        return res.json([]);
+      }
+      const result = await electionEvent.getSubCandidates();
+      return res.json(result);
+    } catch (err) {
+      return next(err);
+    }
   });
   router.post('/Vote', async (req, res, next) => {
     try {
@@ -40,7 +50,13 @@ export function voteRouter(): Router {
       }
       const votes = req.body;
       // validate votes
-      const validCandidates = await electionEvent.getCandidates();
+      let validCandidates: any[];
+      if (electionEvent.subEvents && electionEvent.subEvents.length) {
+        validCandidates = await electionEvent.getSubCandidates();
+      } else {
+        validCandidates = await electionEvent.getCandidates();
+      }
+
       votes.forEach(vote => {
         const find = validCandidates.findIndex((validCandidate) => {
           return validCandidate.id === vote.id;
@@ -51,8 +67,29 @@ export function voteRouter(): Router {
           });
         }
       });
-      // validate votes length
-      valid = votes.length >= (electionEvent.specification && electionEvent.specification.minimumSelection || 0) && votes.length <= (electionEvent.specification && electionEvent.specification.maximumSelection || 0);
+      if (electionEvent.subEvents && electionEvent.subEvents.length) {
+        for (const subEvent of electionEvent.subEvents) {
+          const eventCandidates = validCandidates.filter((item) => {
+            return item.electionEvent === subEvent.id;
+          });
+          const eventVotes = votes.filter((item: { id: number }) => {
+            return eventCandidates.find((eventCandidate) => {
+              return item.id === eventCandidate.id;
+            });
+          });
+          // validate votes length for sub-event
+          valid = eventVotes.length >= (subEvent.specification && subEvent.specification.minimumSelection || 0) && eventVotes.length <= (subEvent.specification && subEvent.specification.maximumSelection || 0);
+          if (!valid) {
+            throw Object.assign(new HttpConflictError('Invalid vote selection.'), {
+              code: 'ERR_SUBEVENT_VOTE_SELECTION'
+            });
+          }
+        }
+      } else {
+        // validate votes length
+        valid = votes.length >= (electionEvent.specification && electionEvent.specification.minimumSelection || 0) && votes.length <= (electionEvent.specification && electionEvent.specification.maximumSelection || 0);
+      }
+
       if (!valid) {
         throw Object.assign(new HttpConflictError('Invalid vote selection.'), {
           code: 'ERR_VOTE_SELECTION'

@@ -7,6 +7,7 @@ import { ConfirmCandidateComponent } from './confirm-candidate/confirm-candidate
 import { VoteComponent } from './vote/vote.component';
 import { ResultListComponent } from './result-list/result-list.component';
 import { OverviewComponent } from './overview/overview.component';
+import { MultipleVoteComponent } from './multiple-vote/multiple-vote.component';
 
 const routes: Routes = [{
   path: ':id',
@@ -24,6 +25,10 @@ const routes: Routes = [{
     {
       path: 'candidates/apply',
       component: AddCandidateComponent
+    },
+    {
+      path: 'vote/multiple',
+      component: MultipleVoteComponent
     },
     {
       path: 'vote',

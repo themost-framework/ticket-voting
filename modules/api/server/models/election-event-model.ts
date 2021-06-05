@@ -12,7 +12,8 @@ import ElectionSpecification = require('./election-specification-model');
 class ElectionEvent extends Event {
 
   public id?: number;
-  public specification?: ElectionSpecification
+  public specification?: ElectionSpecification;
+  public subEvents?: any[];
   /**
    * @constructor
    */
@@ -36,7 +37,12 @@ class ElectionEvent extends Event {
       .value();
     return await context.model(ElectionEvent)
       .where('id').equal(id)
-      .expand('specification')
+      .expand('specification', {
+        name: 'subEvents',
+        options: {
+          '$expand': 'specification'
+        }
+      })
       .silent().getTypedItem();
   }
 
@@ -49,6 +55,23 @@ class ElectionEvent extends Event {
         'object/familyName as candidateFamilyName',
         'object/givenName as candidateGivenName',
         'shortDescription'
+      )
+      .orderBy('object/familyName')
+      .thenBy('object/givenName')
+      .silent()
+      .getAllItems();
+  }
+
+  async getSubCandidates(): Promise<any> {
+    return await this.context.model(RegisterCandidateAction)
+      .where('electionEvent/superEvent').equal(this.getId())
+      .and('actionStatus/alternateName').equal('CompletedActionStatus')
+      .select(
+        'id',
+        'object/familyName as candidateFamilyName',
+        'object/givenName as candidateGivenName',
+        'shortDescription',
+        'electionEvent'
       )
       .orderBy('object/familyName')
       .thenBy('object/givenName')

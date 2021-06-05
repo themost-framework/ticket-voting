@@ -9,11 +9,10 @@ import { NgTemplateOutlet } from '@angular/common';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({
-  selector: 'app-vote',
-  templateUrl: './vote.component.html',
-  styleUrls: ['./vote.component.scss']
+  selector: 'app-multiple-vote',
+  templateUrl: './multiple-vote.component.html'
 })
-export class VoteComponent implements OnInit, OnDestroy {
+export class MultipleVoteComponent implements OnInit, OnDestroy {
   modalRef: any;
   ngOnDestroy(): void {
     if (this.querySubscription) {
@@ -49,22 +48,8 @@ export class VoteComponent implements OnInit, OnDestroy {
       // get candidates
       Promise.all([
         this._context.model('ElectionEvents/Current').asQueryable().getItem(),
-        this._context.model('ElectionEvents/Current/Candidates').getItems()
+        this._context.model('ElectionEvents/Current/SubCandidates').getItems()
       ]).then((results) => {
-        // validate multiple events
-        const electionEvent = results[0];
-        if (electionEvent && electionEvent.subEvents && electionEvent.subEvents.length) {
-          return this._router.navigate([
-            '/events',
-            'current',
-            'vote',
-            'multiple'
-          ], {
-            queryParams: {
-              access_token
-            }
-          });
-        }
         this._loadingService.hideLoading();
         this.model = Object.assign(results[0], {
           candidates: results[1]
@@ -104,11 +89,14 @@ export class VoteComponent implements OnInit, OnDestroy {
   }
 
   public onSelectionChange(_event?: any) {
-    const selected = this.model.candidates.filter((candidate: any) => {
-      return candidate.selected;
+    const invalidLength = this.model.subEvents.filter((subEvent: any) => {
+      const selected = this.model.candidates.filter((candidate: any) => {
+        return candidate.selected && candidate.electionEvent === subEvent.id;
+      }).length;
+      return !(selected >= subEvent.specification.minimumSelection &&
+        selected <= subEvent.specification.maximumSelection);
     }).length;
-    this.formInvalid = !(selected >= this.model.specification.minimumSelection &&
-      selected <= this.model.specification.maximumSelection);
+    this.formInvalid = invalidLength > 0;
   }
 
   confirm() {

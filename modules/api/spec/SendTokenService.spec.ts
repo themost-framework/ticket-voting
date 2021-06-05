@@ -21,7 +21,7 @@ describe('SendTokenService', () => {
   fit("should send tokens", async () => {
     const service: SendTokenService = context.getApplication().getService(<any>SendTokenService);
     const election = await context.model(ElectionEvent)
-      .where('identifier').equal('wVdXSWHSmTS')
+      .where('identifier').equal('17hUFs2nngz')
       .silent()
       .getItem();
     for (let index = 0; index < 20; index++) {

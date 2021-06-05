@@ -25,6 +25,19 @@
             "type": "ElectionSpecification",
             "nested": true,
             "expandable": true
+        },
+        {
+            "@id": "http://schema.org/subEvents",
+            "name": "subEvents",
+            "title": "subEvents",
+            "type": "ElectionEvent",
+            "mapping": {
+              "parentModel": "ElectionEvent",
+              "parentField": "id",
+              "childModel": "ElectionEvent",
+              "childField": "superEvent",
+              "associationType": "association"
+            }
         }
     ],
     "eventListeners": [
