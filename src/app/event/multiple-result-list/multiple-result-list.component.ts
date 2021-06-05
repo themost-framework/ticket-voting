@@ -1,16 +1,16 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ErrorService } from 'src/app/shared/error.service';
 import { AngularDataContext } from '@themost/angular';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { LoadingService } from 'src/app/shared/loading.service';
 import { Subscription } from 'rxjs';
 
 @Component({
-  selector: 'app-result-list',
-  templateUrl: './result-list.component.html',
-  styleUrls: ['./result-list.component.scss']
+  selector: 'app-multiple-result-list',
+  templateUrl: './multiple-result-list.component.html',
+  styleUrls: ['./multiple-result-list.component.scss']
 })
-export class ResultListComponent implements OnInit, OnDestroy {
+export class MultipleResultListComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     if (this.paramSubscription) {
       this.paramSubscription.unsubscribe();
@@ -23,10 +23,10 @@ export class ResultListComponent implements OnInit, OnDestroy {
   constructor(private _errorService: ErrorService,
     private _context: AngularDataContext,
     private _activatedRoute: ActivatedRoute,
-    private _loadingService: LoadingService,
-    private _router: Router) { }
+    private _loadingService: LoadingService) { }
 
   public model: any;
+  public subEvents: any[] = [];
   private paramSubscription: Subscription;
   public updatedAt = new Date();
   public liveUpdate = true;
@@ -34,7 +34,7 @@ export class ResultListComponent implements OnInit, OnDestroy {
 
   public refresh() {
     const id = this._activatedRoute.snapshot.params.id;
-    this._context.model(`ElectionEvents/${id}/results`).getItems().then((results) => {
+    this._context.model(`ElectionEvents/${id}/SubResults`).getItems().then((results) => {
       results.votes = results.votes.sort((a, b) => {
         if (a.total > b.total) {
           return -1;
@@ -53,19 +53,11 @@ export class ResultListComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.paramSubscription = this._activatedRoute.params.subscribe((params) => {
+
       Promise.all([
-        this._context.model(`ElectionEvents/${params.id}/results`).getItems(),
+        this._context.model(`ElectionEvents/${params.id}/SubResults`).getItems(),
         this._context.model(`ElectionEvents`).where('superEvent/identifier').equal(params.id).getItems()
       ]).then((results) => {
-        const subEvents = results[1];
-        if (subEvents && subEvents.length) {
-          return this._router.navigate([
-            '/events',
-            params.id,
-            'results',
-            'multiple'
-          ]);
-        }
         const eventResults = results[0];
         eventResults.votes = eventResults.votes.sort((a, b) => {
           if (a.total > b.total) {
@@ -76,6 +68,7 @@ export class ResultListComponent implements OnInit, OnDestroy {
           }
           return 0;
         });
+        this.subEvents = results[1];
         this.model = eventResults;
       }).catch((err) => {
         this._errorService.showError(err);

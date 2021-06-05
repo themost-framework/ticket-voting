@@ -34,6 +34,38 @@ export function extraRouter(): Router {
     }
 
   });
+
+  router.get("/ElectionEvents/:identifier/SubResults", async (req, res, next) => {
+    try {
+      const event = await req.context.model('ElectionEvent').where('identifier').equal(req.params.identifier).silent().getItem();
+      if (event == null) {
+        return next(new HttpNotFoundError("The specified event cannot be found"));
+      }
+      const envelopes = await req.context.model(VoteAction).select('envelope')
+        .groupBy('envelope')
+        .where('candidate/electionEvent/superEvent/identifier').equal(req.params.identifier)
+        .silent()
+        .count();
+      const votes = await req.context.model(VoteAction)
+        .select(
+          'count(id) as total', 'candidate', 'candidate/object/familyName as candidateFamilyName', 'candidate/object/givenName as candidateGivenName',
+          'candidate/electionEvent as electionEvent'
+        )
+        .groupBy('candidate', 'candidate/object/familyName',
+          'candidate/object/givenName', 'candidate/electionEvent')
+        .where('candidate/electionEvent/superEvent/identifier').equal(req.params.identifier)
+        .silent()
+        .getAllItems();
+      return res.json({
+        voters: envelopes,
+        votes: votes
+      });
+    } catch (err) {
+      return next(err);
+    }
+
+  });
+
   router.post("/ElectionEvents/:identifier/Candidates/Apply", async (req, res, next) => {
     try {
       const event = await req.context.model('ElectionEvent').where('identifier').equal(req.params.identifier).silent().getItem();

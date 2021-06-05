@@ -14,9 +14,10 @@ import { VoteComponent } from './vote/vote.component';
 import { ResultListComponent } from './result-list/result-list.component';
 import { OverviewComponent } from './overview/overview.component';
 import { MultipleVoteComponent } from './multiple-vote/multiple-vote.component';
+import { MultipleResultListComponent } from './multiple-result-list/multiple-result-list.component';
 
 @NgModule({
-  declarations: [CandidateComponent, AddCandidateComponent, CandidateListComponent, EventHomeComponent, ConfirmCandidateComponent, VoteComponent, ResultListComponent, OverviewComponent, MultipleVoteComponent],
+  declarations: [CandidateComponent, AddCandidateComponent, CandidateListComponent, EventHomeComponent, ConfirmCandidateComponent, VoteComponent, ResultListComponent, OverviewComponent, MultipleVoteComponent, MultipleResultListComponent],
   imports: [
     CommonModule,
     FormsModule,

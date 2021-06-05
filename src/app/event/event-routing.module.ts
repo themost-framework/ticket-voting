@@ -8,6 +8,7 @@ import { VoteComponent } from './vote/vote.component';
 import { ResultListComponent } from './result-list/result-list.component';
 import { OverviewComponent } from './overview/overview.component';
 import { MultipleVoteComponent } from './multiple-vote/multiple-vote.component';
+import { MultipleResultListComponent } from './multiple-result-list/multiple-result-list.component';
 
 const routes: Routes = [{
   path: ':id',
@@ -33,6 +34,10 @@ const routes: Routes = [{
     {
       path: 'vote',
       component: VoteComponent
+    },
+    {
+      path: 'results/multiple',
+      component: MultipleResultListComponent
     },
     {
       path: 'results',
