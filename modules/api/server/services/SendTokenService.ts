@@ -2,7 +2,7 @@ import { ApplicationService } from "@themost/common";
 import { getMailer } from '@themost/mailer';
 import { ExpressDataContext } from "@themost/express";
 import ElectionAuthClient = require("../models/election-auth-client-model");
-import AccessToken = require("../models/access-token-model");
+import VoteAccessToken = require("../models/vote-access-token-model");
 import ElectionEvent = require("../models/election-event-model");
 
 class SendTokenService extends ApplicationService {
@@ -41,9 +41,22 @@ class SendTokenService extends ApplicationService {
       "user_id": recipient,
       "user_description": recipientDescription,
       "scope": "vote",
-      "expires": specification.validThrough
+      "expires": specification.validThrough,
+      "electionEvent": election.id
     };
-    await context.model(AccessToken).silent().save(newToken);
+    const hasToken = await context.model(VoteAccessToken)
+      .where('electionEvent').equal(election.id)
+      .and('user_id').equal(recipient)
+      .silent()
+      .getItem();
+    if (hasToken == null) {
+      await context.model(VoteAccessToken).silent().save(newToken);
+    } else {
+      // set access_token to prepare sending message
+      Object.assign(newToken, {
+        access_token: hasToken.access_token
+      });
+    }
     // send message
     const mailer = getMailer(context);
     const subject = <string>(election.name);
