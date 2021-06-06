@@ -10,7 +10,7 @@ export function extraRouter(): Router {
   const router = Router();
   router.get("/ElectionEvents/:identifier/Results", async (req, res, next) => {
     try {
-      const event = await req.context.model('ElectionEvent').where('identifier').equal(req.params.identifier).silent().getItem();
+      const event = await req.context.model('ElectionEvent').where('identifier').equal(req.params.identifier).silent().getTypedItem();
       if (event == null) {
         return next(new HttpNotFoundError("The specified event cannot be found"));
       }
@@ -25,6 +25,19 @@ export function extraRouter(): Router {
         .where('candidate/electionEvent/identifier').equal(req.params.identifier)
         .silent()
         .getAllItems();
+      // get all candidates in order to show candidates without records
+      const candidates = await event.getCandidates();
+      for (const candidate of candidates) {
+        if (votes.find((item) => item.candidate === candidate.id) == null) {
+          votes.push({
+            total: 0,
+            candidate: candidate.id,
+            candidateFamilyName: candidate.candidateFamilyName,
+            candidateGivenName: candidate.candidateGivenName,
+            electionEvent: candidate.electionEvent
+          });
+        }
+      }
       return res.json({
         voters: envelopes,
         votes: votes
@@ -37,7 +50,7 @@ export function extraRouter(): Router {
 
   router.get("/ElectionEvents/:identifier/SubResults", async (req, res, next) => {
     try {
-      const event = await req.context.model('ElectionEvent').where('identifier').equal(req.params.identifier).silent().getItem();
+      const event = await req.context.model('ElectionEvent').where('identifier').equal(req.params.identifier).silent().getTypedItem();
       if (event == null) {
         return next(new HttpNotFoundError("The specified event cannot be found"));
       }
@@ -56,6 +69,19 @@ export function extraRouter(): Router {
         .where('candidate/electionEvent/superEvent/identifier').equal(req.params.identifier)
         .silent()
         .getAllItems();
+      // get all candidates in order to show candidates without records
+      const candidates = await event.getSubCandidates();
+      for (const candidate of candidates) {
+        if (votes.find((item) => item.candidate === candidate.id) == null) {
+          votes.push({
+            total: 0,
+            candidate: candidate.id,
+            candidateFamilyName: candidate.candidateFamilyName,
+            candidateGivenName: candidate.candidateGivenName,
+            electionEvent: candidate.electionEvent
+          });
+        }
+      }
       return res.json({
         voters: envelopes,
         votes: votes

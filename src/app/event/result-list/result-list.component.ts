@@ -4,6 +4,7 @@ import { AngularDataContext } from '@themost/angular';
 import { ActivatedRoute, Router } from '@angular/router';
 import { LoadingService } from 'src/app/shared/loading.service';
 import { Subscription } from 'rxjs';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-result-list',
@@ -24,8 +25,12 @@ export class ResultListComponent implements OnInit, OnDestroy {
     private _context: AngularDataContext,
     private _activatedRoute: ActivatedRoute,
     private _loadingService: LoadingService,
-    private _router: Router) { }
+    private _router: Router,
+    private _translateService: TranslateService) {
+    this.currentLang = this._translateService.currentLang;
+  }
 
+  public currentLang: string;
   public model: any;
   private paramSubscription: Subscription;
   public updatedAt = new Date();

@@ -29,7 +29,8 @@
           <ng-container *ngFor="let item of model.votes">
             <li *ngIf="item.electionEvent === subEvent.id"
               class="list-group-item d-flex justify-content-between align-items-center">
-              {{item.candidateFamilyName}} {{item.candidateGivenName}}
+              <span [lang]="currentLang" class="text-uppercase">{{item.candidateFamilyName}}
+                {{item.candidateGivenName}}</span>
               <span class="badge badge-primary badge-pill">{{item.total}}</span>
             </li>
           </ng-container>

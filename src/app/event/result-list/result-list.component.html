@@ -25,7 +25,8 @@
           <span><strong>{{ 'Votes' | translate }}</strong></span>
         </li>
         <li class="list-group-item d-flex justify-content-between align-items-center" *ngFor="let item of model.votes">
-          {{item.candidateFamilyName}} {{item.candidateGivenName}}
+          <span [lang]="currentLang" class="text-uppercase">{{item.candidateFamilyName}}
+            {{item.candidateGivenName}}</span>
           <span class="badge badge-primary badge-pill">{{item.total}}</span>
         </li>
       </ul>

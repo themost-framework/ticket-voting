@@ -4,6 +4,7 @@ import { AngularDataContext } from '@themost/angular';
 import { ActivatedRoute } from '@angular/router';
 import { LoadingService } from 'src/app/shared/loading.service';
 import { Subscription } from 'rxjs';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-multiple-result-list',
@@ -23,8 +24,12 @@ export class MultipleResultListComponent implements OnInit, OnDestroy {
   constructor(private _errorService: ErrorService,
     private _context: AngularDataContext,
     private _activatedRoute: ActivatedRoute,
-    private _loadingService: LoadingService) { }
+    private _loadingService: LoadingService,
+    private _translateService: TranslateService) {
+    this.currentLang = this._translateService.currentLang;
+  }
 
+  public currentLang: string;
   public model: any;
   public subEvents: any[] = [];
   private paramSubscription: Subscription;
