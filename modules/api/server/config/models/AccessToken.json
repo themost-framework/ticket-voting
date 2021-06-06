@@ -6,7 +6,7 @@
     "hidden": true,
     "sealed": false,
     "abstract": false,
-    "version": "0.1",
+    "version": "0.2",
     "fields": [
         {
             "@id": "https://themost.io/schemas/access_token",
@@ -35,6 +35,14 @@
             "type": "Text",
             "nullable": false,
             "indexed": true
+        },
+        {
+            "@id": "https://themost.io/schemas/user_description",
+            "name": "user_description",
+            "title": "User description",
+            "description": "A description for this user.",
+            "type": "Text",
+            "nullable": true
         },
         {
             "@id": "https://themost.io/schemas/expires",

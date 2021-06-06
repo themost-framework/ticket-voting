@@ -15,7 +15,7 @@ class SendTokenService extends ApplicationService {
    * @param election
    * @param recipient
    */
-  async send(context: ExpressDataContext, election: ElectionEvent, recipient: string) {
+  async send(context: ExpressDataContext, election: ElectionEvent, recipient: string, recipientDescription?: string) {
     // save token
     let electionClient = await context.model(ElectionAuthClient)
       .where('electionEvent').equal(election.id)
@@ -39,6 +39,7 @@ class SendTokenService extends ApplicationService {
     const newToken = {
       "client_id": electionClient.client_id,
       "user_id": recipient,
+      "user_description": recipientDescription,
       "scope": "vote",
       "expires": specification.validThrough
     };

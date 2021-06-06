@@ -25,7 +25,7 @@ describe('SendTokenService', () => {
       .silent()
       .getItem();
     for (let index = 0; index < 20; index++) {
-      await service.send(context, election, `voter${index}@example.com`);
+      await service.send(context, election, `voter${index}@example.com`, `Voter${index} description`);
     }
   });
 
