@@ -31,12 +31,17 @@ parseFile(sourceFile, { headers: true })
     context.model('ElectionEvent').where('identifier').equal(electionIdentifier)
       .getItem().then((electionEvent) => {
         const errors = [];
+        function asyncTimeout(ms) {
+          return new Promise((resolve) => {
+            setTimeout(() => {
+              resolve();
+            }, ms);
+          });
+        }
         (async function () {
           for (const row of rows) {
             try {
-              if (row.recipient === 'voter21@example.com') {
-                throw new Error('Operation cancelled')
-              }
+              await asyncTimeout(3000);
               await tokenService.send(context, electionEvent, row.recipient, row.description);
               console.log('TOKEN_SEND', row.recipient);
             } catch (error) {
