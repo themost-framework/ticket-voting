@@ -5,7 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { LoadingService } from 'src/app/shared/loading.service';
 import { Subscription } from 'rxjs';
 import { BsModalService } from 'ngx-bootstrap/modal';
-import { NgTemplateOutlet } from '@angular/common';
+import { NgTemplateOutlet, DatePipe } from '@angular/common';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({
@@ -31,8 +31,16 @@ export class MultipleVoteComponent implements OnInit, OnDestroy {
   public model: any;
   public completed = false;
   public formInvalid = true;
+  public invalidPeriod = false;
   private querySubscription: Subscription;
   @ViewChild('confirmTemplate') confirmTemplate: NgTemplateOutlet;
+
+  private isInvalidElectionPeriod(electionEvent) {
+    const now = new Date().getTime();
+    const validFrom = electionEvent.specification && electionEvent.specification.validFrom && new Date(electionEvent.specification.validFrom).getTime() || 0;
+    const validThrough = electionEvent.specification && electionEvent.specification.validThrough && new Date(electionEvent.specification.validThrough).getTime() || 0;
+    return !(now >= validFrom && now <= validThrough);
+  }
 
   ngOnInit(): void {
     // get token (if any)
@@ -42,7 +50,7 @@ export class MultipleVoteComponent implements OnInit, OnDestroy {
     }
     this._loadingService.showLoading();
     this.querySubscription = this._activatedRoute.queryParams.subscribe((queryParams) => {
-      const access_token = queryParams.access_token;
+      // const access_token = queryParams.access_token;
       // exchange and validate token
 
       // get candidates
@@ -54,6 +62,10 @@ export class MultipleVoteComponent implements OnInit, OnDestroy {
         this.model = Object.assign(results[0], {
           candidates: results[1]
         });
+        const pipe = new DatePipe(this._translateService.currentLang);
+        this.model.specification.validFromString = pipe.transform(this.model.specification.validFrom, 'short');
+        this.model.specification.validThroughString = pipe.transform(this.model.specification.validThrough, 'short');
+        this.invalidPeriod = this.isInvalidElectionPeriod(this.model);
         this.onSelectionChange();
       }).catch((err) => {
         this._loadingService.hideLoading();

@@ -45,7 +45,17 @@
   </form>
 </ng-template>
 
-
+<ng-template #templateInvalidPeriod>
+  <div class="text-center mt-5">
+    <div>
+      <i class="fa fa-2x bg-danger p-4 rounded-circle text-white fa-times" style="width:80px"></i>
+    </div>
+    <p class="card-text mt-3">
+      <span [translate]="'InvalidElectionPeriod'"></span>&nbsp;
+      <span [translate]="'ElectionPeriod'" [translateParams]="model.specification"></span>
+    </p>
+  </div>
+</ng-template>
 
 <ng-template #submitted>
   <div class="text-center mt-5">
@@ -57,7 +67,11 @@
   </div>
 </ng-template>
 
-<ng-container *ngIf="!completed">
+<ng-container *ngIf="invalidPeriod">
+  <ng-container *ngTemplateOutlet="templateInvalidPeriod"></ng-container>
+</ng-container>
+
+<ng-container *ngIf="!completed && !invalidPeriod">
   <ng-container *ngTemplateOutlet="vote"></ng-container>
 </ng-container>
 
