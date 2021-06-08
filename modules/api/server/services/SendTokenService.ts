@@ -38,15 +38,15 @@ class SendTokenService extends ApplicationService {
     // add token
     const newToken = {
       "client_id": electionClient.client_id,
-      "user_id": recipient,
+      "user_id": recipient.toLocaleLowerCase(),
       "user_description": recipientDescription,
       "scope": "vote",
       "expires": specification.validThrough,
       "electionEvent": election.id
     };
     const hasToken = await context.model(VoteAccessToken)
-      .where('electionEvent').equal(election.id)
-      .and('user_id').equal(recipient)
+      .where('electionEvent').equal(newToken.electionEvent)
+      .and('user_id').equal(newToken.user_id)
       .silent()
       .getItem();
     if (hasToken == null) {
