@@ -59,12 +59,6 @@ export class MultipleResultListComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.paramSubscription = this._activatedRoute.params.subscribe((params) => {
-
-      const error = new ResponseError("Not available", 404.5);
-      Object.assign(error, {
-        status: 404.5
-      })
-      return this._errorService.showError(error);
       Promise.all([
         this._context.model(`ElectionEvents/${params.id}/SubResults`).getItems(),
         this._context.model(`ElectionEvents`).where('superEvent/identifier').equal(params.id).getItems()
