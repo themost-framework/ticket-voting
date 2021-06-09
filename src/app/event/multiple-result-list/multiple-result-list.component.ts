@@ -82,7 +82,7 @@ export class MultipleResultListComponent implements OnInit, OnDestroy {
     if (this.liveUpdate) {
       this.liveInterval = setInterval(() => {
         this.refresh();
-      }, 300000);
+      }, 120000);
     }
   }
 
